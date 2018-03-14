@@ -1,0 +1,12 @@
+doctype html
+head
+	title= "Noodle.io (Monitor)"
+body
+	h1 Noodle.io
+	h2 Monitoring the users:
+	ol
+		each room, key in roomList
+			li Room name: #{key}
+				ol
+					each uname in room.users
+						li Username logged in: #{uname} at location IP: #{userList[uname].ip}

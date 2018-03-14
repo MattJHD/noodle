@@ -1,0 +1,16 @@
+doctype html
+head
+	title= "Noodle.io (Login)"
+body
+	h1 Noodle.io
+	form#login(action='/canvas', method='POST')
+		input#username(name='username',type='text',placeholder='Your Username Here')
+		br
+		input#room(name='room',type='text',placeholder='Room Name Here')
+		br
+		input#submit(type='submit',value='Login')
+		br
+		p #{msg}
+		p Developed by:
+		a MJW
+		|  Copyright (c) 2017

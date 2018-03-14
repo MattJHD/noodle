@@ -1,0 +1,14 @@
+{
+  "name": "Noodle.io",
+  "version": "0.0.0",
+  "desctiption": "Real time web canvas where clients can draw collaberatively",
+  "dependencies": {
+    "body-parser": "~1.6.1",
+    "express": "~4.8.1",
+    "express-json": "~1.0.0",
+    "jade": "~1.5.0",
+    "jsdom": "~0.11.1",
+    "socket.io": "~1.0.6"
+  },
+  "author": "MJW"
+}

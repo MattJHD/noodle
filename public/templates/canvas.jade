@@ -1,0 +1,39 @@
+doctype html
+head
+	title= "Noodle.io"
+	link(rel='stylesheet', href='/canvas_style.css')
+	script(src='http://code.jquery.com/jquery-1.9.1.min.js')
+	script(src='/paper-full.min.js')
+	script(src='/socket.io/socket.io.js')
+	script(src='/connect.js')
+	script(src='/chat.js')
+	script(src='/draw.js')
+body
+	#title_div
+		p Noodle.io
+	#canvas_chat
+		#canvas_div
+			p#canvas_header Canvas:
+				#canvas_controls
+					input#pencil(type='Button',value='Pencil')
+					| Thickness:
+					input#thick_txt(type='text',value='2')
+					input#thick_range(type='range',min='1',max='100',step='1',value='2')
+					| Color:
+					input#color_picker(type='color',value='#000000')
+			canvas#draw_area
+			//- script(type="text/paperscript", src="/draw.js", canvas="draw_area")
+		#chat_div
+			p.chat Chat: in room #{room}
+			#chat_content
+			#chat_controls
+				div.inner_container
+					//- input#name(disabled)
+					//- br
+					input#chat_input(type='text')
+					script.
+						var name = '#{username}';
+						var room = '#{room}';
+			p.chat Users Online:
+			div#users_online
+				ul#online_list
