@@ -75,6 +75,19 @@ app.get('/',function(req,res){
 	res.render('login.jade',{msg:''});
 });
 
+
+// Example of API route for LOGIN
+// Linked to login components in client folder - fetch(/login) endpoint
+app.get('/login',function(req,res){
+	console.log(req.ip+" opened the site");
+	let test = {
+		title: 'test var',
+	}
+	res.json(test);
+});
+
+
+
 app.get('/monitor',function(req,res) {
 	console.log(req.ip+" is monitoring");
 	res.render('monitor.jade',{roomList:users.roomList,userList:users.userList});

@@ -1,0 +1,24 @@
+.wrapper {
+  display: grid!important;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+.one {
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
+  /* background-color: red; */
+}
+.two { 
+  grid-column: 2 / 4;
+  grid-row: 2 / 6;
+  /* background-color: blue; */
+}
+.three {
+  grid-column: 1;
+  grid-row: 2 / 6;
+  /* background-color: #ccc; */
+}

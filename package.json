@@ -1,14 +1,29 @@
 {
   "name": "Noodle.io",
   "version": "0.0.0",
-  "desctiption": "Real time web canvas where clients can draw collaberatively",
+  "description": "Real time web canvas where clients can draw collaberatively",
   "dependencies": {
     "body-parser": "~1.6.1",
+    "concurrently": "^3.5.1",
     "express": "~4.8.1",
     "express-json": "~1.0.0",
     "jade": "~1.5.0",
     "jsdom": "~0.11.1",
+    "react-router-dom": "^4.2.2",
     "socket.io": "~1.0.6"
+  },
+  "scripts": {
+    "client-install": "cd client && npm install",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.2",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "request": "^2.85.0"
   },
   "author": "MJW"
 }
