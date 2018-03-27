@@ -7,11 +7,11 @@ Frontend: React
 
 Installation
 --------------------
-1. Clone the repository git clone https://github.com/MattJHD/noodle.git
-2. Go in the project repository and run npm install which will install all the packages needed for the server
-3. Go in the client folder cd client
-4. Run npm install to install all the client side packages
-5. To run the application, npm run dev it will run the dev server on port 5000 and the client on port 3000 by default using concurrently
+1. Clone the repository `git clone https://github.com/MattJHD/noodle.git`
+2. Go in the project repository and run `npm install` which will install all the packages needed for the server
+3. Go in the client folder `cd client`
+4. Run `npm install` to install all the client side packages
+5. To run the application, `npm run dev` it will run the dev server on port 5000 and the client on port 3000 by default using concurrently
 
 
 Directory Structure:
