@@ -13,6 +13,7 @@ function Nav(props) {
       <div className="App-header">
         <Link to="/"><img src={logo} className="App-logo" alt="logo" /></Link>
         <Link to="/login">Login</Link>
+        <Link to="/register">Register</Link>
         {/* <nav> */}
           {/* <div>
               <Link to="/">Home</Link>

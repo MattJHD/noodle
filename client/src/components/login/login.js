@@ -1,77 +1,85 @@
-import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-} from 'react-router-dom';
-import Nav from '../nav/nav';
+import React, { Component } from "react";
+import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import "./login.css";
 
-class Login extends Component {
-  constructor() {
-    // We need to call super() because this component is embed in a parent component
-    super();
-    // We have our customers in our state
+export default class Login extends Component {
+  constructor(props) {
+    super(props);
+
     this.state = {
-      events: [],
-    }
+      email: "",
+      password: ""
+    };
   }
 
-  // It runs automatically when the component mounted
+  validateForm() {
+    return this.state.email.length > 0 && this.state.password.length > 0;
+  }
+
+  handleChange = event => {
+    this.setState({
+      [event.target.id]: event.target.value
+    });
+  }
+
+  handleSubmit = event => {
+    event.preventDefault();
+    fetch("login", {  
+      method: 'POST',  
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },  
+      body: JSON.stringify({
+          name: 'dean',
+          login: 'dean'
+        })
+    })
+    .then(function (data) {  
+      console.log('Request success: ', data);  
+    })  
+    .catch(function (error) {  
+      console.log('Request failure: ', error);  
+    });
+  }
+
   componentDidMount() {
     fetch('/login')
       .then(res => res.json())
-      .then(events => this.setState({events: events}, () => console.log('Events fetched', {events}))); // This is {events: events} ES6 syntax    
+      .then(email => this.setState({email: email.mail}, () => console.log('Email fetched', {email}))); // This is {events: events} ES6 syntax    
   }
-  // filterList(searchValue){
-  //   var updatedList = this.state.events;
-  //   console.log(updatedList);
 
-  //   updatedList = updatedList.filter((item) => {
-  //     console.log(searchValue.nativeEvent.target.value, item.recordid);
-      
-  //     if (item.fields.hasOwnProperty('title')) {
-  //     return (
-  //       (item.recordid.toLowerCase().search(searchValue.nativeEvent.target.value.toLowerCase()) !== -1)) 
-  //       || 
-  //       (item.fields.title.toLowerCase().search(searchValue.nativeEvent.target.value.toLowerCase()) !== -1)
-  //       || 
-  //       (item.fields.city.toLowerCase().search(searchValue.nativeEvent.target.value.toLowerCase()) !== -1);
-  //     } else {
-  //       return (
-  //         (item.recordid.toLowerCase().search(searchValue.nativeEvent.target.value.toLowerCase()) !== -1)) 
-  //         || 
-  //         (item.fields.city.toLowerCase().search(searchValue.nativeEvent.target.value.toLowerCase()) !== -1);
-  //     }
-
-  //     // return item.recordid === searchValue.nativeEvent.target.value;
-  //   });
-  //   console.log(updatedList);
-  //   this.setState({filteredEvents: updatedList});
-  // }
-
-  render() {   
+  render() {
     return (
-      <div>
-        {/* <Nav  title="Events" /> */}
-        <div className="container">
-          {/* <form>
-            <fieldset className="form-group">
-              <input type="text" className="form-control form-control-lg" placeholder="Search" onChange={evt => this.filterList(evt)}/>
-            </fieldset>
-          </form>
-          {this.state.filteredEvents.map((event, i) => {
-            return( 
-            <div key={event.recordid}>
-              <Event event={event} />
-            </div>
-            )}
-          )} */}
-            <h2>Login component</h2>
-            <p></p>
-        </div>
+      <div className="Login">
+        <form onSubmit={this.handleSubmit}>
+          <FormGroup controlId="email" bsSize="large">
+            <ControlLabel>Email</ControlLabel>
+            <FormControl
+              autoFocus
+              type="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+          <FormGroup controlId="password" bsSize="large">
+            <ControlLabel>Password</ControlLabel>
+            <FormControl
+              value={this.state.password}
+              onChange={this.handleChange}
+              type="password"
+            />
+          </FormGroup>
+          <Button
+            block
+            bsSize="large"
+            disabled={!this.validateForm()}
+            type="submit"
+          >
+            Login
+          </Button>
+        </form>
       </div>
-    )
+    );
   }
 }
-
-export default Login;

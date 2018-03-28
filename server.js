@@ -10,6 +10,7 @@ var app = express();
 app.use(bodyParser.urlencoded({
 	extended: true
 }));
+app.use(bodyParser.json());
 app.enable('trust proxy');
 app.set('views',__dirname+'/public/templates');
 app.set('view engine','jade');
@@ -19,6 +20,13 @@ app.use(express.static(__dirname + '/public/js'));
 app.use(express.static(__dirname + '/public/css'));
 app.use(express.static(__dirname + '/public/libs'));
 app.use(express.static(__dirname + '/public/res'));
+
+//test
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
 
 var io = require('socket.io').listen(app.listen(port));
 console.log('Listening on port: '+port);
@@ -80,12 +88,32 @@ app.get('/',function(req,res){
 // Linked to login components in client folder - fetch(/login) endpoint
 app.get('/login',function(req,res){
 	console.log(req.ip+" opened the site");
-	let test = {
-		title: 'test var',
+	let data = {
+		mail: 'bloch.william@gmail.com',
 	}
-	res.json(test);
+	res.json(data);
 });
 
+// Test post request on login component
+app.post('/login', function(req,res){
+	console.log(req.body);
+	res.json();
+});
+
+
+app.get('/register',function(req,res){
+	console.log(req.ip+" opened the site");
+	let data = {
+		mail: 'test.register@gmail.com',
+	}
+	res.json(data);
+});
+
+// Test post request on register component
+app.post('/register', function(req, res){
+	console.log(req.body);
+	res.json();
+});
 
 
 app.get('/monitor',function(req,res) {

@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import Nav from './components/nav/nav';
 import Login from './components/login/login';
+import Register from './components/register/register';
 import logo from './logo.svg';
 import './App.css';
 
@@ -31,6 +32,7 @@ class App extends Component {
             <Nav />
             <Route exact path='/' component={Home} />
             <Route exact path='/login' component={Login} />
+            <Route exact path='/register' component={Register} />
             {/* <Route exact path='/events/:id' component={EventDetail} /> */}
             {/* <Route path='/events' component={Events} /> */}
           </div>
