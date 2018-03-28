@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link,
+  // Link,
 } from 'react-router-dom';
 import Nav from './components/nav/nav';
 import Login from './components/login/login';
 import Register from './components/register/register';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
 
