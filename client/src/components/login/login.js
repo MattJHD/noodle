@@ -37,7 +37,12 @@ export default class Login extends Component {
         })
     })
     .then(function (data) {  
-      console.log('Request success: ', data);  
+      console.log('Request success: ', data);
+      if(data.status == "200"){
+        console.log('user connected');
+      } else if (data.status == "500") {
+        console.log('user refused');
+      }
     })  
     .catch(function (error) {  
       console.log('Request failure: ', error);  

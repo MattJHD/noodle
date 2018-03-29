@@ -21,6 +21,18 @@ export default class RoomList extends Component {
     return (
       <div className="RoomList">
         <h1>RoomList component</h1>
+        {/* {this.state.rooms.map((room, i) => {
+            return( 
+            <div key={room}>
+              <ul>
+                <li>
+                  {room}
+                </li>
+              </ul>
+            </div>
+            )}
+          )} */}
+          {this.state.rooms.toString()}
       </div>
     );
   }
