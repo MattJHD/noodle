@@ -112,11 +112,16 @@ app.post('/login', function(req,res){
 	var params = req.body;
 	myDB.collection("users").find({"email":params.email}).toArray(function (error, results) {
 		if (error) console.log(error);
-		if (results[0].password === params.password) {
-			res.json({status:200});
+		if (results[0]) {
+			if (results[0].password === params.password) {
+				res.status(200).send('User connected');
+			}else{
+				res.status(500).send('Invalid password');
+			}
 		}else{
-			res.json({status:500});
+			res.status(404).send("User don't exist please register");
 		}
+		
 	});
 });
 
@@ -134,10 +139,9 @@ app.post('/register', function(req, res){
 	console.log("register");
 	var params = req.body;
 	console.log(params);
-	myDB.collection('users').insert0ne(params,function () {
-		res.send("200");
+	myDB.collection('users').insert(params,function () {
+		res.json({status:200,msg:"User created"});
 	});
-	// console.log(req.body);
 });
 
 
