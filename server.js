@@ -140,7 +140,7 @@ app.post('/register', function(req, res){
 	var params = req.body;
 	console.log(params);
 	myDB.collection('users').insert(params,function () {
-		res.json({status:200,msg:"User created"});
+		res.status(200).send('User created');
 	});
 });
 
