@@ -5,11 +5,15 @@ var express = require('express'),
 	// canvasServer = require('./src/canvas_server.js');
 	// publicJSFiles = __dirname + '/public/js/';
 var port = Number(process.env.PORT || 5000);
+var cors 	   = require('cors');
+var MongoClient = require("mongodb").MongoClient;
 
 var app = express();
 app.use(bodyParser.urlencoded({
 	extended: true
 }));
+app.use(cors());
+
 app.use(bodyParser.json());
 app.enable('trust proxy');
 app.set('views',__dirname+'/public/templates');
@@ -27,6 +31,14 @@ app.use(express.static(__dirname + '/public/res'));
 //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 //   next();
 // });
+
+var myDB;
+
+MongoClient.connect("mongodb://localhost:27017/noodle", function(error, client) {
+	if (error) console.log(error);
+	myDB = client.db("noodle");
+	console.log("Connecté à la base de données");
+})
 
 var io = require('socket.io').listen(app.listen(port));
 console.log('Listening on port: '+port);
@@ -96,8 +108,14 @@ app.get('/login',function(req,res){
 
 // Test post request on login component
 app.post('/login', function(req,res){
-	console.log(req.body);
-	res.json();
+	var params = req.body;
+
+	myDB.collection("users").find({"email":params.email}).toArray(function (error, results) {
+		if (error) console.log(error);
+		var date2 = new Date();
+		console.log(date2-date1+"ms");
+		res.json(results);
+	});
 });
 
 
@@ -111,8 +129,12 @@ app.get('/register',function(req,res){
 
 // Test post request on register component
 app.post('/register', function(req, res){
-	console.log(req.body);
-	res.json();
+	console.log("register");
+	var params = req.body;
+	console.log(params);
+	myDB.collection('users').insert0ne(params,function () {
+		res.send("200");
+	});
 });
 
 

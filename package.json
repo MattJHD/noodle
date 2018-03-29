@@ -5,10 +5,12 @@
   "dependencies": {
     "body-parser": "~1.6.1",
     "concurrently": "^3.5.1",
+    "cors": "^2.8.4",
     "express": "~4.8.1",
     "express-json": "~1.0.0",
     "jade": "~1.5.0",
     "jsdom": "~0.11.1",
+    "mongodb": "^3.0.5",
     "react-router-dom": "^4.2.2",
     "socket.io": "~1.0.6"
   },
