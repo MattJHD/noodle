@@ -149,7 +149,8 @@ app.get('/monitor',function(req,res) {
 
 // Test RoomList
 app.get('/roomList',function(req,res){
-	// console.log(users.roomList);
+	console.log(users.roomList);
+	// users.roomList = JSON.parse(users.roomList);
 	res.json(users.roomList);
 });
 
