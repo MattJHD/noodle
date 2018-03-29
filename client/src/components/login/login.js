@@ -22,6 +22,7 @@ export default class Login extends Component {
     });
   }
 
+  
   handleSubmit = event => {
     event.preventDefault();
     fetch("login", {  
@@ -31,8 +32,8 @@ export default class Login extends Component {
         'Content-Type': 'application/json'
       },  
       body: JSON.stringify({
-          name: 'dean',
-          login: 'dean'
+          email: this.state.email,
+          password: this.state.password
         })
     })
     .then(function (data) {  
@@ -42,6 +43,28 @@ export default class Login extends Component {
       console.log('Request failure: ', error);  
     });
   }
+
+
+  // handleSubmit = event => {
+  //   event.preventDefault();
+  //   fetch("login", {  
+  //     method: 'POST',  
+  //     headers: {
+  //       'Accept': 'application/json',
+  //       'Content-Type': 'application/json'
+  //     },  
+  //     body: JSON.stringify({
+  //         name: 'dean',
+  //         login: 'dean'
+  //       })
+  //   })
+  //   .then(function (data) {  
+  //     console.log('Request success: ', data);  
+  //   })  
+  //   .catch(function (error) {  
+  //     console.log('Request failure: ', error);  
+  //   });
+  // }
 
   componentDidMount() {
     fetch('/login')

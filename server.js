@@ -111,7 +111,7 @@ app.get('/register',function(req,res){
 
 // Test post request on register component
 app.post('/register', function(req, res){
-	console.log(req.body);
+	// console.log(req.body);
 	res.json();
 });
 
@@ -119,6 +119,13 @@ app.post('/register', function(req, res){
 app.get('/monitor',function(req,res) {
 	console.log(req.ip+" is monitoring");
 	res.render('monitor.jade',{roomList:users.roomList,userList:users.userList});
+});
+
+
+// Test RoomList
+app.get('/roomList',function(req,res){
+	// console.log(users.roomList);
+	res.json(users.roomList);
 });
 
 app.post('/canvas',function(req,res,next){

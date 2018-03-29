@@ -7,15 +7,10 @@ import {
 import Nav from './components/nav/nav';
 import Login from './components/login/login';
 import Register from './components/register/register';
+import Room from './components/rooms/room';
+import CreateRoom from './components/rooms/createRoom';
 // import logo from './logo.svg';
 import './App.css';
-
-
-// const Page = ({ title }) => (
-//   <div className="App">
-    
-//   </div>
-// );
 
 const Home = (props) => (
   <h1>Homepage</h1>
@@ -33,8 +28,9 @@ class App extends Component {
             <Route exact path='/' component={Home} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/register' component={Register} />
-            {/* <Route exact path='/events/:id' component={EventDetail} /> */}
-            {/* <Route path='/events' component={Events} /> */}
+            <Route exact path='/createRoom' component={CreateRoom} />
+            <Route exact path='/rooms/:id' component={Room} />
+
           </div>
         </Router>
         {/* <Events />

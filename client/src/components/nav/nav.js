@@ -10,16 +10,8 @@ function Nav(props) {
         <Link to="/"><img src={logo} className="App-logo" alt="logo" /></Link>
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
-        {/* <nav> */}
-          {/* <div>
-              <Link to="/">Home</Link>
-              
-          </div>
-          <div>
-              <Link to="/events">Events</Link>
-              
-          </div> */}
-		    {/* </nav> */}
+        <Link to="createRoom">Create room</Link>
+        {/* <Link to={`/room/${props.room.id}`}>Room</Link> */}
       </div>
     </div>
   );
