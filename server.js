@@ -108,13 +108,15 @@ app.get('/login',function(req,res){
 
 // Test post request on login component
 app.post('/login', function(req,res){
+	console.log("Login");
 	var params = req.body;
-
 	myDB.collection("users").find({"email":params.email}).toArray(function (error, results) {
 		if (error) console.log(error);
-		var date2 = new Date();
-		console.log(date2-date1+"ms");
-		res.json(results);
+		if (results[0].password === params.password) {
+			res.json({status:200});
+		}else{
+			res.json({status:500});
+		}
 	});
 });
 
@@ -129,17 +131,13 @@ app.get('/register',function(req,res){
 
 // Test post request on register component
 app.post('/register', function(req, res){
-<<<<<<< HEAD
 	console.log("register");
 	var params = req.body;
 	console.log(params);
 	myDB.collection('users').insert0ne(params,function () {
 		res.send("200");
 	});
-=======
 	// console.log(req.body);
-	res.json();
->>>>>>> cc19b099a0d9ef7a000748acb5b1727f0cc7eaf5
 });
 
 
