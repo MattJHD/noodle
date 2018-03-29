@@ -14,7 +14,7 @@ export default class RoomList extends Component {
   componentDidMount() {
     fetch('/roomList')
       .then(res => res.json())
-      .then(rooms => this.setState({rooms: rooms}, () => console.log('Rooms fetched', {rooms}))); // This is {events: events} ES6 syntax    
+      .then(rooms => this.setState({rooms: JSON.stringify(rooms)}, () => console.log('Rooms fetched', JSON.stringify({rooms})))); // This is {events: events} ES6 syntax    
   }
 
   render() {
@@ -32,7 +32,7 @@ export default class RoomList extends Component {
             </div>
             )}
           )} */}
-          {this.state.rooms.toString()}
+          {this.state.rooms}
       </div>
     );
   }
