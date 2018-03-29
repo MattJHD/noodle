@@ -6,6 +6,7 @@ var chatLimit = 100;
 function addUserToRoom(uid,room) {
 	if (room in roomList) {
 		roomList[room].users.push(uid);
+		console.log(room);
 	} else {
 		roomList[room] = {users:[],chats:[]};
 		roomList[room].users.push(uid);

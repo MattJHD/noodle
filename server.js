@@ -129,18 +129,30 @@ app.get('/register',function(req,res){
 
 // Test post request on register component
 app.post('/register', function(req, res){
+<<<<<<< HEAD
 	console.log("register");
 	var params = req.body;
 	console.log(params);
 	myDB.collection('users').insert0ne(params,function () {
 		res.send("200");
 	});
+=======
+	// console.log(req.body);
+	res.json();
+>>>>>>> cc19b099a0d9ef7a000748acb5b1727f0cc7eaf5
 });
 
 
 app.get('/monitor',function(req,res) {
 	console.log(req.ip+" is monitoring");
 	res.render('monitor.jade',{roomList:users.roomList,userList:users.userList});
+});
+
+
+// Test RoomList
+app.get('/roomList',function(req,res){
+	// console.log(users.roomList);
+	res.json(users.roomList);
 });
 
 app.post('/canvas',function(req,res,next){
