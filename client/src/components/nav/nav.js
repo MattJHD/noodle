@@ -11,6 +11,7 @@ function Nav(props) {
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
         <Link to="createRoom">Create room</Link>
+        <Link to="wall">Wall</Link>
         {/* <Link to={`/room/${props.room.id}`}>Room</Link> */}
       </div>
     </div>

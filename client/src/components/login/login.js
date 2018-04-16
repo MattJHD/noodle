@@ -8,7 +8,8 @@ export default class Login extends Component {
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      loggedIn: false
     };
   }
 
@@ -38,8 +39,10 @@ export default class Login extends Component {
     })
     .then(function (data) {  
       console.log('Request success: ', data);
-      if(data.status == "200"){
+      if(data.status == "200" && data.statusText === 'OK'){
         console.log('user connected');
+        this.setState({loggedIn: true});
+        window.location.replace("/createRoom");
       } else if (data.status == "500") {
         console.log('user refused');
       }

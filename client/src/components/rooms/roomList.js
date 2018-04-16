@@ -3,19 +3,19 @@ import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import "./roomList.css";
 
 export default class RoomList extends Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    this.state = {
-      rooms: []
-    };
-  }
+  //   this.state = {
+  //     rooms: []
+  //   };
+  // }
 
-  componentDidMount() {
-    fetch('/roomList')
-      .then(res => res.json())
-      .then(rooms => this.setState({rooms: JSON.stringify(rooms)}, () => console.log('Rooms fetched', JSON.stringify({rooms})))); // This is {events: events} ES6 syntax    
-  }
+  // componentDidMount() {
+  //   fetch('/roomList')
+  //     .then(res => res.json())
+  //     .then(rooms => this.setState({rooms: JSON.stringify(rooms)}, () => console.log('Rooms fetched', JSON.stringify({rooms})))); // This is {events: events} ES6 syntax    
+  // }
 
   render() {
     return (
@@ -32,7 +32,7 @@ export default class RoomList extends Component {
             </div>
             )}
           )} */}
-          {this.state.rooms}
+          {this.props.rooms}
       </div>
     );
   }

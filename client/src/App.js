@@ -9,6 +9,7 @@ import Login from './components/login/login';
 import Register from './components/register/register';
 import Room from './components/rooms/room';
 import CreateRoom from './components/rooms/createRoom';
+import Wall from './components/wall/wall';
 // import logo from './logo.svg';
 import './App.css';
 
@@ -29,6 +30,7 @@ class App extends Component {
             <Route exact path='/login' component={Login} />
             <Route exact path='/register' component={Register} />
             <Route exact path='/createRoom' component={CreateRoom} />
+            <Route exact path='/wall' component={Wall} />
             <Route exact path='/rooms/:id' component={Room} />
 
           </div>

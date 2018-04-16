@@ -8,14 +8,21 @@ export default class CreateRoom extends Component {
     super(props);
 
     this.state = {
+      rooms: []
     };
+  }
+
+  componentDidMount() {
+    fetch('/roomList')
+      .then(res => res.json())
+      .then(rooms => this.setState({rooms: JSON.stringify(rooms)}, () => console.log('Rooms fetched', JSON.stringify({rooms})))); // This is {events: events} ES6 syntax    
   }
 
   render() {
     return (
       <div className="Room">
         <h1>CreateRoom page</h1>
-        <RoomList />
+        <RoomList rooms={this.state.rooms}/>
       </div>
     );
   }
