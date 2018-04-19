@@ -244,3 +244,37 @@
 			padding: 0px!important;
 	}
 }
+
+.whiteBackground{
+	background-color: white;
+	height: 130px;
+	padding: 20px;
+	/* vertical-align: middle; */
+	display: flex;
+	flex-direction: column;
+	border-radius:5px;
+}
+
+.form-group input{
+	width: 100%;
+    background: white;
+    border-radius: 5px;
+    height: 20px;
+}
+
+.form-group{
+	padding: 10px 0;
+}
+
+.btn{
+	width:101%;
+}
+
+.btn-info{
+	border-style: none;
+	background-color: #03A9F4;
+	border-radius: 5px;
+	height: 35px;
+	color: white;
+	text-transform: uppercase;
+}

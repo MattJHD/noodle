@@ -86,9 +86,11 @@ export default class Login extends Component {
     return (
       <div className="Login">
         <form onSubmit={this.handleSubmit}>
+        <div className="whiteBackground">
           <FormGroup controlId="email" bsSize="large">
             <FormControl
               autoFocus
+              autoComplete="off"
               placeholder="Email"
               type="email"
               value={this.state.email}
@@ -97,6 +99,7 @@ export default class Login extends Component {
           </FormGroup>
           <FormGroup controlId="password" bsSize="large">
             <FormControl
+              autoComplete="off"
               value={this.state.password}
               onChange={this.handleChange}
               placeholder="Password"
@@ -104,13 +107,14 @@ export default class Login extends Component {
             />
           </FormGroup>
           <Button
-            block
             bsSize="large"
+            bsStyle="info"
             disabled={!this.validateForm()}
             type="submit"
           >
             Connexion
           </Button>
+          </div>
         </form>
       </div>
     );
