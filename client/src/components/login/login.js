@@ -8,8 +8,8 @@ export default class Login extends Component {
 
     this.state = {
       email: "",
-      password: "",
-      loggedIn: false
+      password: ""
+      // loggedIn: false
     };
   }
 
@@ -41,7 +41,9 @@ export default class Login extends Component {
       console.log('Request success: ', data);
       if(data.status == "200" && data.statusText === 'OK'){
         console.log('user connected');
-        this.setState({loggedIn: true});
+        let token = "1234567";
+        localStorage.setItem('token', token);
+        // this.setState({loggedIn: true});
         window.location.replace("/createRoom");
       } else if (data.status == "500") {
         console.log('user refused');
@@ -85,19 +87,19 @@ export default class Login extends Component {
       <div className="Login">
         <form onSubmit={this.handleSubmit}>
           <FormGroup controlId="email" bsSize="large">
-            <ControlLabel>Email</ControlLabel>
             <FormControl
               autoFocus
+              placeholder="Email"
               type="email"
               value={this.state.email}
               onChange={this.handleChange}
             />
           </FormGroup>
           <FormGroup controlId="password" bsSize="large">
-            <ControlLabel>Password</ControlLabel>
             <FormControl
               value={this.state.password}
               onChange={this.handleChange}
+              placeholder="Password"
               type="password"
             />
           </FormGroup>
@@ -107,7 +109,7 @@ export default class Login extends Component {
             disabled={!this.validateForm()}
             type="submit"
           >
-            Login
+            Connexion
           </Button>
         </form>
       </div>

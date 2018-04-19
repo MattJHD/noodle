@@ -108,13 +108,14 @@ app.get('/login',function(req,res){
 
 // Test post request on login component
 app.post('/login', function(req,res){
-	console.log("Login");
+	// console.log("Login");
 	var params = req.body;
 	myDB.collection("users").find({"email":params.email}).toArray(function (error, results) {
 		if (error) console.log(error);
 		if (results[0]) {
 			if (results[0].password === params.password) {
-				res.status(200).send('User connected');
+				let token = "12345678";
+				res.status(200).send({'token':token});
 			}else{
 				res.status(500).send('Invalid password');
 			}
