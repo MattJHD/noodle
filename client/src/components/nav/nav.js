@@ -15,7 +15,7 @@ export default class Nav extends Component {
 
   
   componentDidMount() {
-    let token = localStorage.getItem('token');
+    let token = sessionStorage.getItem('token');
     this.setState({ token: token });
     console.log(token);
   }
@@ -54,7 +54,7 @@ export default class Nav extends Component {
             <li><Link to="/" open={this.state.open}>Home</Link></li>
             <li><Link to="/login" open={this.state.open} >Login</Link></li>
             <li><Link to="/register" open={this.state.open} >Register</Link></li>
-            <li><Link to="createRoom" open={this.state.open} >Create room</Link></li>
+            {/* <li><Link to="createRoom" open={this.state.open} >Create room</Link></li> */}
             {/* <Link to={`/room/${props.room.id}`}>Room</Link> */}
             </ul>
             </div>

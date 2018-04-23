@@ -8,7 +8,7 @@ export default class Wall extends Component {
   }
 
   componentDidMount() {
-    let token = localStorage.getItem('token');
+    let token = sessionStorage.getItem('token');
     this.setState({ token: token });
     console.log(token);
   }

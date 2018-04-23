@@ -15,7 +15,14 @@ export default class CreateRoom extends Component {
   componentDidMount() {
     fetch('/roomList')
       .then(res => res.json())
-      .then(rooms => this.setState({rooms: JSON.stringify(rooms)}, () => console.log('Rooms fetched', JSON.stringify({rooms})))); // This is {events: events} ES6 syntax    
+      // .then(rooms => this.setState({rooms: JSON.stringify(rooms)}, () => console.log('Rooms fetched', JSON.stringify({rooms})))); // This is {events: events} ES6 syntax    
+      .then(rooms => this.setState(
+        {rooms: rooms}, function() {
+        console.log('Rooms fetched', {rooms});
+        console.log(typeof({rooms}));
+        console.log(typeof(this.state.rooms));
+      } // This is {events: events} ES6 syntax    
+      ))
   }
 
   render() {

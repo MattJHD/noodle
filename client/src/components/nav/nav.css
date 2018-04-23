@@ -93,9 +93,11 @@
 	position: fixed;
   height: 100vh;
   width: 250px;
-  background-color: rgba(255, 255, 255, .8);
+  background: linear-gradient(to right, #6b7DF9 , #27a8e9);
   margin-left: -450px;
-  margin-top: -10px;
+	/* margin-top: -10px; */
+	z-index: 9;
+	top: 0;
   opacity: 0;
   -webkit-box-shadow: 10px 10px 6px -8px rgba(161, 136, 119, .7);
   transition: all .3s ease-in-out;
@@ -143,8 +145,8 @@
 .close-button {
   cursor: pointer;
   transform: rotate(45deg);
-	background-color: #03A9F4;
-	color: white;
+	background-color: white;
+	color: #03A9F4;
   -webkit-box-shadow: 10px 2px 8px -8px rgba(179, 164, 139, .6);
 }
 
@@ -179,13 +181,13 @@
   text-transform: uppercase;
   margin: 0;
   margin-bottom: 30px;
-  border-bottom: 2px solid rgba(0, 0, 0, .5);
+  border-bottom: 2px solid white;
   padding: 3px;
 }
 
 .link-list a {
   text-decoration: none;
-  color: rgba(0, 0, 0, .5);
+  color:white;
   transition: color .3s ease;
 }
 

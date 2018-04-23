@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import Nav from './components/nav/nav';
 import Login from './components/login/login';
+import Home from './components/home/home';
 import Register from './components/register/register';
 import Room from './components/rooms/room';
 import CreateRoom from './components/rooms/createRoom';
@@ -13,9 +14,9 @@ import Wall from './components/wall/wall';
 // import logo from './logo.svg';
 import './App.css';
 
-const Home = (props) => (
-  <h1>Homepage</h1>
-);
+// const Home = (props) => (
+//   <h1>Homepage</h1>
+// );
 
 class App extends Component {
   render() {

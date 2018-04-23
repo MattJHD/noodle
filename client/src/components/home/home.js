@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import "./login.css";
+import "../login/login.css";
 
-export default class Login extends Component {
+export default class Home extends Component {
   constructor(props) {
     super(props);
 
@@ -42,25 +42,22 @@ export default class Login extends Component {
       console.log('Request success: ', data);
       // if(data.status == "200" && data.statusText === 'OK'){
         console.log('user connected');
-        // let token = data.token;
-        
+       
         sessionStorage.setItem('token', data.token);
         sessionStorage.setItem('username', data.result.username);
         sessionStorage.setItem('email', data.result.email);
-
         // this.setState({loggedIn: true});
         window.location.replace("/createRoom");
       // } else if (data.status == "500") {
       //   console.log('user refused');
       //   alert('Invalid password or email');
-      //   // window.location.reload();
+      //   window.location.reload();
       // }
     })  
     .catch(function (error) {  
       console.log('Request failure: ', error);
       alert('Invalid password or email');
-      window.location.reload();
-      
+        window.location.reload();  
     });
   }
 

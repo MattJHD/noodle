@@ -61,7 +61,7 @@ io.sockets.on('connection', function(socket){
 		// users.roomList[userDetail.room].paper = new paper.PaperScope();
 		sendChatsToClient(socket,userDetail.room);
 		io.sockets.emit('user:list',users.getUsernamesList(userDetail.room));
-		console.log('Registered: '+userDetail.username+', '+socket.id);
+		// console.log('Registered: '+userDetail.username+', '+socket.id);
 	});
 
 	socket.on('disconnect', function () {
@@ -91,7 +91,7 @@ io.sockets.on('connection', function(socket){
 });
 
 app.get('/',function(req,res){
-	console.log(req.ip+" opened the site");
+	// console.log(req.ip+" opened the site");
 	res.render('login.jade',{msg:''});
 });
 
@@ -115,7 +115,10 @@ app.post('/login', function(req,res){
 		if (results[0]) {
 			if (results[0].password === params.password) {
 				let token = "12345678";
-				res.status(200).send({'token':token});
+				res.status(200).json({
+					'token':token,
+					'result': results[0]
+				});
 			}else{
 				res.status(500).send('Invalid password');
 			}
@@ -128,7 +131,7 @@ app.post('/login', function(req,res){
 
 
 app.get('/register',function(req,res){
-	console.log(req.ip+" opened the site");
+	// console.log(req.ip+" opened the site");
 	let data = {
 		mail: 'test.register@gmail.com',
 	}
@@ -139,7 +142,7 @@ app.get('/register',function(req,res){
 app.post('/register', function(req, res){
 	console.log("register");
 	var params = req.body;
-	console.log(params);
+	// console.log(params);
 	myDB.collection('users').insert(params,function () {
 		res.status(200).send('User created');
 	});
@@ -147,19 +150,29 @@ app.post('/register', function(req, res){
 
 
 app.get('/monitor',function(req,res) {
-	console.log(req.ip+" is monitoring");
+	// console.log(req.ip+" is monitoring");
 	res.render('monitor.jade',{roomList:users.roomList,userList:users.userList});
 });
 
 
 // Test RoomList
 app.get('/roomList',function(req,res){
-	console.log(users.roomList);
+	// console.log(users.roomList);
 	// users.roomList = JSON.parse(users.roomList);
-	res.json(users.roomList);
+	let roomList = Object.keys(users.roomList);
+	// roomList.push(users.roomList);
+	// roomListParsed = roomList.map(rooms => rooms);
+	// roomListParsed = [];
+	// for (let i=0; i <= roomList.length -1; i++){
+	// 	roomListParsed.push(roomList[i]);
+		console.log(roomList);
+	// }
+	// console.log(roomListParsed);
+	res.json(roomList);
 });
 
 app.post('/canvas',function(req,res,next){
+	console.log(req.body);
 	console.log("Got by POST from "+req.body.username+' '+req.body.room+' '+req.ip);
 	if (!users.addNewUser(req.body.username,req.body.room,req.ip)) {
 		res.render('login.jade',{msg:'Username already taken'});

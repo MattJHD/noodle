@@ -1,0 +1,21 @@
+.RoomList{
+  position: fixed;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(to right, #6b7DF9 , #27a8e9);
+}
+
+.customUl{
+  list-style-type: none;
+    text-align: left;
+    padding: 0 5px;
+    margin: 0px;
+}
+
+.RoomContainer{
+  color: white;
+  text-align: left;
+  padding-top: 70px;
+  padding-left: 10px;
+}
