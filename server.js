@@ -7,7 +7,7 @@ var express = require('express'),
 var port = Number(process.env.PORT || 5000);
 var cors 	   = require('cors');
 var MongoClient = require("mongodb").MongoClient;
-
+var crypto = require('crypto');
 var app = express();
 app.use(bodyParser.urlencoded({
 	extended: true
@@ -114,7 +114,7 @@ app.post('/login', function(req,res){
 		if (error) console.log(error);
 		if (results[0]) {
 			if (results[0].password === params.password) {
-				let token = "12345678";
+				let token = crypto.randomBytes(64).toString('hex');
 				res.status(200).json({
 					'token':token,
 					'result': results[0]
