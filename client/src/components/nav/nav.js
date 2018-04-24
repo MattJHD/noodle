@@ -23,7 +23,7 @@ export default class Nav extends Component {
 
   logout () {
     sessionStorage.clear();
-    window.location.reload();
+    window.location.replace("/");
   }
 
   render() {
@@ -36,7 +36,7 @@ export default class Nav extends Component {
           <div id="menu">
             <ul className="link-list">
                 <li><Link to="/" open={this.state.open} >Home</Link></li>
-                <li><Link to="/login" open={this.state.open} >Login</Link></li>
+                {/* <li><Link to="/login" open={this.state.open} >Login</Link></li> */}
                 <li><Link to="createRoom" open={this.state.open} >Create room</Link></li>
                 <li><Link to="wall" open={this.state.open} >Wall</Link></li>
                 <li><a href="#" onClick={this.logout}>Logout</a></li>
