@@ -12,17 +12,16 @@ body
 	#title_div
 		p Noodle.io
 		button#zindexChange Change calque
+		#canvas_controls
+			input#pencil(type='Button',value='Pencil')
+			| Thickness:
+			input#thick_txt(type='text',value='2')
+			input#thick_range(type='range',min='1',max='100',step='1',value='2')
+			| Color:
+			input#color_picker(type='color',value='#000000')
 	#canvas_chat
 		#canvas_div
 			#text-div(contenteditable="true")
-			p#canvas_header Canvas:
-				#canvas_controls
-					input#pencil(type='Button',value='Pencil')
-					| Thickness:
-					input#thick_txt(type='text',value='2')
-					input#thick_range(type='range',min='1',max='100',step='1',value='2')
-					| Color:
-					input#color_picker(type='color',value='#000000')
 			canvas#draw_area
 			//- script(type="text/paperscript", src="/draw.js", canvas="draw_area")
 		#chat_div

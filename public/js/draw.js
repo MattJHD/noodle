@@ -199,7 +199,11 @@ var setupDraw = function() {
 
 function modifyZindex(){
 	// Change zindex of the divs
-	document.getElementById("text-div").classList.add('inFront');
+	if(document.getElementById("text-div").classList.contains('inFront')){
+		document.getElementById("text-div").classList.remove('inFront');
+	} else {
+		document.getElementById("text-div").classList.add('inFront');
+	}
 }
 
 document.addEventListener("DOMContentLoaded", function(){
