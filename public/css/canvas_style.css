@@ -94,3 +94,7 @@ p.chat{
 	margin: 5%;
 	overflow-y: scroll;
 }
+
+.inFront{
+	z-index: 999!important;
+}

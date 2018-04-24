@@ -101,7 +101,7 @@ app.get('/',function(req,res){
 app.get('/login',function(req,res){
 	console.log(req.ip+" opened the site");
 	let data = {
-		mail: 'bloch.william@gmail.com',
+		mail: '',
 	}
 	res.json(data);
 });
