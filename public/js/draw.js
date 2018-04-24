@@ -195,3 +195,14 @@ var setupDraw = function() {
 	});
 
 };
+
+
+function modifyZindex(){
+	// Change zindex of the divs
+	document.getElementById("text-div").classList.add('inFront');
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+	let changeZindex = document.getElementById("zindexChange");
+	changeZindex.addEventListener("click", modifyZindex);
+});

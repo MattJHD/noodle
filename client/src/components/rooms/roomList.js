@@ -91,44 +91,17 @@ export default class RoomList extends Component {
               <ul className="customUl">
         {this.props.rooms.map((room, i) => {
             return( 
-              // <form onSubmit={this.handleSubmit}>
               <form action="http://localhost:5000/canvas" method="POST">
-                <li key={room}>
+                {/* <li key={room}>
                 
                   {room}
-                </li>
-                {/* <FormGroup controlId="room" bsSize="large">
-                <FormControl
-                  autoFocus
-                  autoComplete="off"
-                  placeholder={room}
-                  type="hidden"
-                  value={room}
-                  onChange={this.handleChange}
-                />
-                </FormGroup>
-                <FormGroup controlId="username" bsSize="large">
-                <FormControl
-                  autoFocus
-                  autoComplete="off"
-                  placeholder={this.state.username}
-                  type="hidden"
-                  value={this.state.username}
-                />
-                </FormGroup>
-                <Button
-                  bsSize="large"
-                  bsStyle="info"
-                  type="submit"
-                >
-                  {room}
-                </Button> */}
+                </li> */}
                 
                 <input id="username" name="username" type="hidden" value={this.state.username}/>
 
                 <input id="room" name="room" type="hidden" value={room}/>
 
-                <button>Send data!</button>
+                <button className="button-list">{room}</button>
               
               </form>
             )}

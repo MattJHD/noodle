@@ -19,3 +19,14 @@
   padding-top: 70px;
   padding-left: 10px;
 }
+
+.button-list{
+  border: none;
+  background: transparent;
+  color: white;
+  text-transform: uppercase;
+}
+
+.button-list:hover{
+  cursor: pointer;
+}
