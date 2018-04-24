@@ -195,3 +195,11 @@ var setupDraw = function() {
 	});
 
 };
+
+
+function modifyZindex(){
+	// Change zindex of the divs
+}
+
+let changeZindex = document.getElementById("zindexChange");
+changeZindex.addEventListener("click", modifyZindex);

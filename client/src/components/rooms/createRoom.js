@@ -8,11 +8,16 @@ export default class CreateRoom extends Component {
     super(props);
 
     this.state = {
+      username: '',
       rooms: []
     };
   }
 
   componentDidMount() {
+    let username = sessionStorage.getItem('username');
+    this.setState({ username: username });
+    console.log(username);
+
     fetch('/roomList')
       .then(res => res.json())
       // .then(rooms => this.setState({rooms: JSON.stringify(rooms)}, () => console.log('Rooms fetched', JSON.stringify({rooms})))); // This is {events: events} ES6 syntax    
@@ -29,6 +34,14 @@ export default class CreateRoom extends Component {
     return (
       <div className="Room">
         <h1>CreateRoom page</h1>
+        <form action="http://localhost:5000/canvas" method="POST">
+        <input id="username" name="username" type="hidden" value={this.state.username}/>
+
+<input id="room" name="room" type="text"/>
+
+<button>Create Room</button>
+
+</form>
         <RoomList rooms={this.state.rooms}/>
       </div>
     );
