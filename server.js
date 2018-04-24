@@ -110,7 +110,7 @@ app.get('/login',function(req,res){
 app.post('/login', function(req,res){
 	// console.log("Login");
 	var params = req.body;
-	myDB.collection("users").find({"email":params.email}).toArray(function (error, results) {
+	myDB.collection("users").find({"email":params.email.toLowerCase()}).toArray(function (error, results) {
 		if (error) console.log(error);
 		if (results[0]) {
 			if (results[0].password === params.password) {
@@ -142,6 +142,7 @@ app.get('/register',function(req,res){
 app.post('/register', function(req, res){
 	console.log("register");
 	var params = req.body;
+	params.email = params.email.toLowerCase();
 	// console.log(params);
 	myDB.collection('users').insert(params,function () {
 		res.status(200).send('User created');
