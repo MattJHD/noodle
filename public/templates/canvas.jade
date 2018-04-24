@@ -10,7 +10,10 @@ head
 	script(src='/draw.js')
 body
 	#title_div
-		p Noodle.io
+		p Room :
+			p #{room}
+		div#users_online
+			ul#online_list
 		button#zindexChange Change calque
 		#canvas_controls
 			input#pencil(type='Button',value='Pencil')
@@ -25,7 +28,6 @@ body
 			canvas#draw_area
 			//- script(type="text/paperscript", src="/draw.js", canvas="draw_area")
 		#chat_div
-			p.chat Chat: in room #{room}
 			#chat_content
 			#chat_controls
 				div.inner_container
@@ -35,6 +37,4 @@ body
 					script.
 						var name = '#{username}';
 						var room = '#{room}';
-			p.chat Users Online:
-			div#users_online
-				ul#online_list
+			
