@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import logo from '../../logo.png';
 import './nav.css';
 
-// function Nav(props) {
 export default class Nav extends Component {
   constructor(props) {
     super(props);
@@ -13,11 +12,9 @@ export default class Nav extends Component {
     };
   }
 
-  
   componentDidMount() {
     let token = sessionStorage.getItem('token');
     this.setState({ token: token });
-    console.log(token);
   }
   
   toggleMenu () {
@@ -36,18 +33,17 @@ export default class Nav extends Component {
          <div className={this.state.open 
            ? "menu-wrapper menu-open" 
            : "menu-wrapper"}>
-           <div id="menu">
+          <div id="menu">
             <ul className="link-list">
-              <li><Link to="/" open={this.state.open} >Home</Link></li>
-              <li><Link to="/login" open={this.state.open} >Login</Link></li>
-              <li><Link to="createRoom" open={this.state.open} >Create room</Link></li>
-              <li><Link to="wall" open={this.state.open} >Wall</Link></li>
-              <li><a href="#" onClick={this.logout}>Logout</a></li>
-              {/* <Link to={`/room/${props.room.id}`}>Room</Link> */}
+                <li><Link to="/" open={this.state.open} >Home</Link></li>
+                <li><Link to="/login" open={this.state.open} >Login</Link></li>
+                <li><Link to="createRoom" open={this.state.open} >Create room</Link></li>
+                <li><Link to="wall" open={this.state.open} >Wall</Link></li>
+                <li><a href="#" onClick={this.logout}>Logout</a></li>
              </ul> 
             </div>
         </div>
-            <button className={this.state.open ? "menu-toggle close-button" 
+        <button className={this.state.open ? "menu-toggle close-button" 
           : "menu-toggle "} onClick={this.toggleMenu.bind(this)}>X</button>
       </div> 
     ) : (
@@ -55,21 +51,18 @@ export default class Nav extends Component {
         <div className={this.state.open 
            ? "menu-wrapper menu-open" 
            : "menu-wrapper"}>
-           <div id="menu">
+          <div id="menu">
             <ul className="link-list">
-            <li><Link to="/" open={this.state.open}>Home</Link></li>
-            <li><Link to="/login" open={this.state.open} >Login</Link></li>
-            <li><Link to="/register" open={this.state.open} >Register</Link></li>
-            {/* <li><Link to="createRoom" open={this.state.open} >Create room</Link></li> */}
-            {/* <Link to={`/room/${props.room.id}`}>Room</Link> */}
+              <li><Link to="/" open={this.state.open}>Home</Link></li>
+              <li><Link to="/login" open={this.state.open} >Login</Link></li>
+              <li><Link to="/register" open={this.state.open} >Register</Link></li>
             </ul>
-            </div>
+          </div>
         </div>
-            <button className={this.state.open ? "menu-toggle close-button" 
+        <button className={this.state.open ? "menu-toggle close-button" 
           : "menu-toggle "} onClick={this.toggleMenu.bind(this)}>X</button>
       </div> 
     );
-
 
     return (
       <div>
@@ -78,6 +71,3 @@ export default class Nav extends Component {
     );
   }
 }
-
-
-// export default Nav;

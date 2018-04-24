@@ -10,31 +10,13 @@ export default class Wall extends Component {
   componentDidMount() {
     let token = sessionStorage.getItem('token');
     this.setState({ token: token });
-    console.log(token);
   }
 
-
-  // isLoggedIn() {
-  //   return (
-  //     <div>
-  //       <h1>Wall page</h1>
-  //       {/* <WallItem /> */}
-  //     </div> 
-  //   ) 
-  // }
-  // isNotLoggedIn() {
-  //   return (
-  //     <div>
-  //       <h1>Please Log in</h1>
-  //     </div> 
-  //   ) 
-  // }
   render() {
     console.log(this.state.token);
     const content = this.state.token ? (
       <div>
          <h1>Wall page</h1>
-         {/* <WallItem /> */}
       </div> 
     ) : (
       <div>

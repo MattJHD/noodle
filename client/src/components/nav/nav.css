@@ -251,7 +251,6 @@
 	background-color: white;
 	height: 130px;
 	padding: 20px;
-	/* vertical-align: middle; */
 	display: flex;
 	flex-direction: column;
 	border-radius:5px;

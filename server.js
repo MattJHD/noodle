@@ -1,11 +1,8 @@
 var express = require('express'),
-	bodyParser = require('body-parser'),
-	// paper = require('./lib/paper-node.js'),
-	users = require('./src/users.js');
-	// canvasServer = require('./src/canvas_server.js');
-	// publicJSFiles = __dirname + '/public/js/';
+		bodyParser = require('body-parser'),
+		users = require('./src/users.js');
 var port = Number(process.env.PORT || 5000);
-var cors 	   = require('cors');
+var cors = require('cors');
 var MongoClient = require("mongodb").MongoClient;
 var crypto = require('crypto');
 var app = express();
@@ -13,24 +10,15 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }));
 app.use(cors());
-
 app.use(bodyParser.json());
 app.enable('trust proxy');
 app.set('views',__dirname+'/public/templates');
 app.set('view engine','jade');
 app.engine('jade', require('jade').__express);
-
 app.use(express.static(__dirname + '/public/js'));
 app.use(express.static(__dirname + '/public/css'));
 app.use(express.static(__dirname + '/public/libs'));
 app.use(express.static(__dirname + '/public/res'));
-
-//test
-// app.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   next();
-// });
 
 var myDB;
 
@@ -58,10 +46,8 @@ io.sockets.on('connection', function(socket){
 	socket.on('register',function(userDetail){
 		socket.join(userDetail.room);
 		users.setSocketId(userDetail.username,socket.id);
-		// users.roomList[userDetail.room].paper = new paper.PaperScope();
 		sendChatsToClient(socket,userDetail.room);
 		io.sockets.emit('user:list',users.getUsernamesList(userDetail.room));
-		// console.log('Registered: '+userDetail.username+', '+socket.id);
 	});
 
 	socket.on('disconnect', function () {
@@ -79,7 +65,6 @@ io.sockets.on('connection', function(socket){
 
 	// Canvas messages handling
 	socket.on('drawing:location',function(data){
-		// console.log('data.location:'+data.location+' x:'+data.location.x+' y:'+data.location.y);
 		io.sockets.in(data.room).emit('drawing:location', data)
 	});
   	socket.on('drawing:start',function (data) {
@@ -91,7 +76,6 @@ io.sockets.on('connection', function(socket){
 });
 
 app.get('/',function(req,res){
-	// console.log(req.ip+" opened the site");
 	res.render('login.jade',{msg:''});
 });
 
@@ -106,9 +90,7 @@ app.get('/login',function(req,res){
 	res.json(data);
 });
 
-// Test post request on login component
 app.post('/login', function(req,res){
-	// console.log("Login");
 	var params = req.body;
 	myDB.collection("users").find({"email":params.email.toLowerCase()}).toArray(function (error, results) {
 		if (error) console.log(error);
@@ -131,9 +113,8 @@ app.post('/login', function(req,res){
 
 
 app.get('/register',function(req,res){
-	// console.log(req.ip+" opened the site");
 	let data = {
-		mail: 'test.register@gmail.com',
+		mail: '',
 	}
 	res.json(data);
 });
@@ -143,7 +124,6 @@ app.post('/register', function(req, res){
 	console.log("register");
 	var params = req.body;
 	params.email = params.email.toLowerCase();
-	// console.log(params);
 	myDB.collection('users').insert(params,function () {
 		res.status(200).send('User created');
 	});
@@ -151,24 +131,13 @@ app.post('/register', function(req, res){
 
 
 app.get('/monitor',function(req,res) {
-	// console.log(req.ip+" is monitoring");
 	res.render('monitor.jade',{roomList:users.roomList,userList:users.userList});
 });
 
 
-// Test RoomList
 app.get('/roomList',function(req,res){
-	// console.log(users.roomList);
-	// users.roomList = JSON.parse(users.roomList);
 	let roomList = Object.keys(users.roomList);
-	// roomList.push(users.roomList);
-	// roomListParsed = roomList.map(rooms => rooms);
-	// roomListParsed = [];
-	// for (let i=0; i <= roomList.length -1; i++){
-	// 	roomListParsed.push(roomList[i]);
-		console.log(roomList);
-	// }
-	// console.log(roomListParsed);
+	console.log(roomList);
 	res.json(roomList);
 });
 
@@ -178,7 +147,6 @@ app.post('/canvas',function(req,res,next){
 	if (!users.addNewUser(req.body.username,req.body.room,req.ip)) {
 		res.render('login.jade',{msg:'Username already taken'});
 	} else {
-		// users.setSocketId();
 		res.render('canvas.jade',{username:req.body.username,room:req.body.room});
 	}
 });

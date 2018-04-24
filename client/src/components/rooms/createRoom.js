@@ -20,13 +20,10 @@ export default class CreateRoom extends Component {
 
     fetch('/roomList')
       .then(res => res.json())
-      // .then(rooms => this.setState({rooms: JSON.stringify(rooms)}, () => console.log('Rooms fetched', JSON.stringify({rooms})))); // This is {events: events} ES6 syntax    
       .then(rooms => this.setState(
         {rooms: rooms}, function() {
-        console.log('Rooms fetched', {rooms});
-        console.log(typeof({rooms}));
-        console.log(typeof(this.state.rooms));
-      } // This is {events: events} ES6 syntax    
+          console.log('Rooms fetched', {rooms});
+        }  
       ))
   }
 
@@ -38,13 +35,10 @@ export default class CreateRoom extends Component {
           Vous pouvez rejoindre une room existante en cliquant sur son nom ou en créer une nouvelle.
         </p>
         <form action="http://localhost:5000/canvas" method="POST" className="RoomForm">
-        <input id="username" name="username" type="hidden" value={this.state.username}/>
-
-        <label className="labelRoom" htmlFor="room">Nom</label>
-        <input id="room" name="room" type="text"/>
-
-        <button className="buttonRoom">Créér room</button>
-
+          <input id="username" name="username" type="hidden" value={this.state.username}/>
+          <label className="labelRoom" htmlFor="room">Nom</label>
+          <input id="room" name="room" type="text"/>
+          <button className="buttonRoom">Créér room</button>
         </form>
         <RoomList rooms={this.state.rooms}/>
       </div>

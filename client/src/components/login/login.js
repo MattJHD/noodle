@@ -9,7 +9,6 @@ export default class Login extends Component {
     this.state = {
       email: "",
       password: ""
-      // loggedIn: false
     };
   }
 
@@ -22,7 +21,6 @@ export default class Login extends Component {
       [event.target.id]: event.target.value
     });
   }
-
   
   handleSubmit = event => {
     event.preventDefault();
@@ -40,21 +38,11 @@ export default class Login extends Component {
     .then(data => data.json())
     .then(function (data) {  
       console.log('Request success: ', data);
-      // if(data.status == "200" && data.statusText === 'OK'){
-        console.log('user connected');
-        // let token = data.token;
-        
-        sessionStorage.setItem('token', data.token);
-        sessionStorage.setItem('username', data.result.username);
-        sessionStorage.setItem('email', data.result.email);
-
-        // this.setState({loggedIn: true});
-        window.location.replace("/createRoom");
-      // } else if (data.status == "500") {
-      //   console.log('user refused');
-      //   alert('Invalid password or email');
-      //   // window.location.reload();
-      // }
+      console.log('user connected');
+      sessionStorage.setItem('token', data.token);
+      sessionStorage.setItem('username', data.result.username);
+      sessionStorage.setItem('email', data.result.email);
+      window.location.replace("/createRoom");
     })  
     .catch(function (error) {  
       console.log('Request failure: ', error);
@@ -63,28 +51,6 @@ export default class Login extends Component {
       
     });
   }
-
-
-  // handleSubmit = event => {
-  //   event.preventDefault();
-  //   fetch("login", {  
-  //     method: 'POST',  
-  //     headers: {
-  //       'Accept': 'application/json',
-  //       'Content-Type': 'application/json'
-  //     },  
-  //     body: JSON.stringify({
-  //         name: 'dean',
-  //         login: 'dean'
-  //       })
-  //   })
-  //   .then(function (data) {  
-  //     console.log('Request success: ', data);  
-  //   })  
-  //   .catch(function (error) {  
-  //     console.log('Request failure: ', error);  
-  //   });
-  // }
 
   componentDidMount() {
     fetch('/login')

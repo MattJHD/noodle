@@ -54,12 +54,6 @@ export default class Register extends Component {
     });
   }
 
-  // componentDidMount() {
-  //   fetch('/register')
-  //     .then(res => res.json())
-  //     .then(email => this.setState({email: email.mail}, () => console.log('Email fetched', {email}))); // This is {events: events} ES6 syntax    
-  // }
-
   render() {
     return (
       <div className="Register">
