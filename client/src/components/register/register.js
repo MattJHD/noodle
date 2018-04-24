@@ -64,66 +64,68 @@ export default class Register extends Component {
     return (
       <div className="Register">
         <form onSubmit={this.handleSubmit}>
+        <div className="whiteBackgroundRegister">
           <FormGroup controlId="firstName" bsSize="large">
-            <ControlLabel>First Name</ControlLabel>
             <FormControl
               autoFocus
               type="text"
               value={this.state.firstName}
               onChange={this.handleChange}
+              placeholder="First Name"
             />
           </FormGroup>
           <FormGroup controlId="lastName" bsSize="large">
-            <ControlLabel>Last Name</ControlLabel>
             <FormControl
               autoFocus
               type="text"
               value={this.state.lastName}
               onChange={this.handleChange}
+              placeholder="Last Name"
             />
           </FormGroup>
           <FormGroup controlId="username" bsSize="large">
-            <ControlLabel>Username</ControlLabel>
             <FormControl
               autoFocus
               type="text"
               value={this.state.username}
               onChange={this.handleChange}
+              placeholder="Username"
             />
           </FormGroup>
           <FormGroup controlId="email" bsSize="large">
-            <ControlLabel>Email</ControlLabel>
             <FormControl
               autoFocus
               type="email"
               value={this.state.email}
               onChange={this.handleChange}
+              placeholder="Email"
             />
           </FormGroup>
           <FormGroup controlId="password" bsSize="large">
-            <ControlLabel>Password</ControlLabel>
             <FormControl
               value={this.state.password}
               onChange={this.handleChange}
               type="password"
+              placeholder="Password"
             />
           </FormGroup>
           <FormGroup controlId="passwordControl" bsSize="large">
-            <ControlLabel>Verify Password</ControlLabel>
             <FormControl
               value={this.state.passwordControl}
               onChange={this.handleChange}
               type="password"
+              placeholder="Verify Password"
             />
           </FormGroup>
           <Button
-            block
             bsSize="large"
+            bsStyle="info"
             disabled={!this.validateForm()}
             type="submit"
           >
             Register
           </Button>
+          </div>
         </form>
       </div>
     );

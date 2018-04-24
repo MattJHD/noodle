@@ -33,15 +33,19 @@ export default class CreateRoom extends Component {
   render() {
     return (
       <div className="Room">
-        <h1>CreateRoom page</h1>
-        <form action="http://localhost:5000/canvas" method="POST">
+        <h1 className="Roomh1">Créer une room</h1>
+        <p className="RoomP">Les rooms sont là où les membres peuvent communiquer, prendre des notes, dessiner et exporter le résultat.
+          Vous pouvez rejoindre une room existante en cliquant sur son nom ou en créer une nouvelle.
+        </p>
+        <form action="http://localhost:5000/canvas" method="POST" className="RoomForm">
         <input id="username" name="username" type="hidden" value={this.state.username}/>
 
-<input id="room" name="room" type="text"/>
+        <label className="labelRoom" htmlFor="room">Nom</label>
+        <input id="room" name="room" type="text"/>
 
-<button>Create Room</button>
+        <button className="buttonRoom">Créér room</button>
 
-</form>
+        </form>
         <RoomList rooms={this.state.rooms}/>
       </div>
     );

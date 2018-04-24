@@ -10,18 +10,20 @@ head
 	script(src='/draw.js')
 body
 	#title_div
-		p Room :
-			p #{room}
-		div#users_online
-			ul#online_list
-		button#zindexChange Change calque
+		#roomInfos
+			p ROOM 
+				ul#room_list
+					li #{room}
+			p UTILISATEURS 
+				ul#online_list
 		#canvas_controls
-			input#pencil(type='Button',value='Pencil')
-			| Thickness:
+			button#zindexChange Change calque
+			button#hideChat Hide chat
 			input#thick_txt(type='text',value='2')
-			input#thick_range(type='range',min='1',max='100',step='1',value='2')
-			| Color:
 			input#color_picker(type='color',value='#000000')
+			#slidecontainer
+				input#thick_range(type='range',min='1',max='100',step='1',value='2')
+			input#pencil(type='Button',value='Pencil')
 	#canvas_chat
 		#canvas_div
 			#text-div(contenteditable="true")

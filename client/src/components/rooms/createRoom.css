@@ -1,0 +1,46 @@
+.Room{
+  margin-top: 10%;
+}
+
+.Roomh1{
+  margin-bottom: 3%;
+  text-align: left;
+  margin-left: 35%;
+}
+
+.buttonRoom{
+  height: 40px;
+  width: 37.3%;
+  margin-left: 40%;
+  border: none;
+  margin-top: 2%;
+  background: linear-gradient(to right, #6b7DF9 , #27a8e9);
+  display: block;
+  border-radius: 5px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.RoomP{
+  width: 50%;
+  margin-left: 35%;
+  text-align: left;
+}
+
+.RoomForm{
+  margin-left: 35%;
+  text-align: left;
+}
+
+.labelRoom{
+  margin-right: 2%;
+  width: 8%;
+}
+
+#room{
+  border: 2px solid #cacaca;
+    border-radius: 5px;
+    height: 36px;
+    width: 71.5%;
+    margin-top: 2%;
+}

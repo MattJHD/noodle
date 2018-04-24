@@ -206,7 +206,18 @@ function modifyZindex(){
 	}
 }
 
+function hideChat(){
+	// Change zindex of the divs
+	if(document.getElementById("chat_div").classList.contains('hiddenChat')){
+		document.getElementById("chat_div").classList.remove('hiddenChat');
+	} else {
+		document.getElementById("chat_div").classList.add('hiddenChat');
+	}
+}
+
 document.addEventListener("DOMContentLoaded", function(){
 	let changeZindex = document.getElementById("zindexChange");
+	let hideChatButton = document.getElementById("hideChat");
+	hideChatButton.addEventListener("click", hideChat);
 	changeZindex.addEventListener("click", modifyZindex);
 });

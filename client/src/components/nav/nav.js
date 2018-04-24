@@ -24,6 +24,11 @@ export default class Nav extends Component {
     this.setState({open: !this.state.open });
   }
 
+  logout () {
+    sessionStorage.clear();
+    window.location.reload();
+  }
+
   render() {
 
     const content = this.state.token ? (
@@ -37,6 +42,7 @@ export default class Nav extends Component {
               <li><Link to="/login" open={this.state.open} >Login</Link></li>
               <li><Link to="createRoom" open={this.state.open} >Create room</Link></li>
               <li><Link to="wall" open={this.state.open} >Wall</Link></li>
+              <li><a href="#" onClick={this.logout}>Logout</a></li>
               {/* <Link to={`/room/${props.room.id}`}>Room</Link> */}
              </ul> 
             </div>
