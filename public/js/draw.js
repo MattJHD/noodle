@@ -121,7 +121,7 @@ var setupDraw = function() {
 					unpackActionMessage('drawing:start',data);
 				}
 			}
-		}
+		}q
 	});
 
 	socket.on('drawing:progress',function(data) {
@@ -131,6 +131,16 @@ var setupDraw = function() {
 				if (data.tool == 'pencil') {
 					unpackActionMessage('drawing:progress',data);
 				}
+			}
+		}
+	});
+
+	socket.on('text:send',function(data) {
+		console.log(data);
+		if (data.username != name) {
+			index = getUserIndex(data.username);
+			if (index !== null) {
+				document.getElementById('text-div').innerText = data.text;
 			}
 		}
 	});
@@ -215,9 +225,13 @@ function hideChat(){
 	}
 }
 
+
 document.addEventListener("DOMContentLoaded", function(){
 	let changeZindex = document.getElementById("zindexChange");
 	let hideChatButton = document.getElementById("hideChat");
 	hideChatButton.addEventListener("click", hideChat);
 	changeZindex.addEventListener("click", modifyZindex);
+	document.getElementById('text-div').addEventListener('keyup',function () {
+		socket.emit('text:send',{text:document.getElementById('text-div').innerText,room:room,username:name});
+	})
 });

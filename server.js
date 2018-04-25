@@ -73,6 +73,10 @@ io.sockets.on('connection', function(socket){
   	socket.on('drawing:progress',function (data) {
   		io.sockets.in(data.room).emit('drawing:progress',data);
   	});
+  	//Text
+  	socket.on('text:send',function (data) {
+  		io.sockets.in(data.room).emit('text:send',data);
+  	});
 });
 
 app.get('/',function(req,res){
