@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Real time web canvas where clients can draw collaberatively",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "~1.6.1",
     "concurrently": "^3.5.1",
     "cors": "^2.8.4",
@@ -10,9 +11,14 @@
     "express-json": "~1.0.0",
     "jade": "~1.5.0",
     "jsdom": "~0.11.1",
+    "jsonwebtoken": "^8.2.1",
     "mongodb": "^3.0.5",
+    "mongoose": "^5.0.16",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
     "react-router-dom": "^4.2.2",
-    "socket.io": "~1.0.6"
+    "socket.io": "~1.0.6",
+    "validator": "^9.4.1"
   },
   "scripts": {
     "client-install": "cd client && npm install",
@@ -22,10 +28,16 @@
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "devDependencies": {
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.2.1",
+    "mongoose": "^5.0.16",
     "nodemon": "^1.17.2",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "request": "^2.85.0"
+    "request": "^2.85.0",
+    "validator": "^9.4.1"
   },
   "author": "MJW"
 }
