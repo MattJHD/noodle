@@ -10,6 +10,7 @@ const passport = require("passport");
 const mongoose = require("mongoose");
 
 const usersRoute = require("./routes/api/users");
+const roomsRoute = require("./routes/api/rooms");
 
 const app = express();
 
@@ -60,6 +61,7 @@ require("./config/passport")(passport);
 
 // Use Routes
 app.use("/api/users", usersRoute);
+app.use("/api/rooms", roomsRoute);
 
 var io = require("socket.io").listen(app.listen(port));
 console.log("Listening on port: " + port);

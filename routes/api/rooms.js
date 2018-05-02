@@ -11,7 +11,7 @@ const users = require("../../src/users.js");
 // @access  Private
 router.get(
   "/roomList",
-  passport.authenticate("jwt", { session: false }),
+  // passport.authenticate("jwt", { session: false }),
   (req, res) => {
     let roomList = Object.keys(users.roomList);
     console.log(roomList);
