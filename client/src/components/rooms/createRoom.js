@@ -16,6 +16,10 @@ class CreateRoom extends Component {
   }
 
   componentDidMount() {
+    if (!this.props.auth.isAuthenticated) {
+      this.props.history.push("/");
+    }
+
     console.log(this.props.auth.user);
     fetch("/api/rooms/roomList")
       .then(res => res.json())
@@ -24,6 +28,16 @@ class CreateRoom extends Component {
           console.log("Rooms fetched", { rooms });
         })
       );
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (!nextProps.auth.isAuthenticated) {
+      this.props.history.push("/");
+    }
+
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
   }
 
   render() {
