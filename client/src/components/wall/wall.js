@@ -37,14 +37,21 @@ class Wall extends Component {
     } else {
       if (Object.keys(wall).length > 0) {
         wallContent = (
-          <div className="wall-container">
-            <div className="Wall">{user.id}</div>
-            <div className="Wall">{user.email}</div>
-            <div className="Wall">{user.firstName}</div>
-            <div className="Wall">{user.lastName}</div>
-            {wall.img.map((image, i) => {
-              return <img src={image} alt="test" className="img-wall" />;
-            })}
+          <div>
+            <div className="sideBar" />
+            <div className="wall-container">
+              <div className="Wall">{user.id}</div>
+              <div className="Wall">{user.email}</div>
+              <div className="Wall">{user.firstName}</div>
+              <div className="Wall">{user.lastName}</div>
+              {wall.img.map((image, i) => {
+                return (
+                  <a href={image} download="filename.png">
+                    <img src={image} alt="test" className="img-wall" />
+                  </a>
+                );
+              })}
+            </div>
           </div>
         );
       } else {

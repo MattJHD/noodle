@@ -1,18 +1,36 @@
 .img-wall {
-  width: 400px;
+  width: 31%;
   height: 300px;
   display: inline-block;
   border: 1px solid #eee;
+  -webkit-box-shadow: 5px 2px 2px #eee;
   box-shadow: 5px 2px 2px #eee;
-  margin: 10px;
+  margin: 1%;
 }
 
 .wall-container {
-  width: 60%;
-  margin: auto;
+  width: calc(100% - 250px);
+  margin-left: 250px;
 }
 
 .center {
   width: 50%;
   margin: auto;
+}
+
+.sideBar {
+  position: fixed;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#6b7df9),
+    to(#27a8e9)
+  );
+  background: -webkit-linear-gradient(left, #6b7df9, #27a8e9);
+  background: -o-linear-gradient(left, #6b7df9, #27a8e9);
+  background: linear-gradient(to right, #6b7df9, #27a8e9);
 }

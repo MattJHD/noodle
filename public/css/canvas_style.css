@@ -105,6 +105,7 @@ body {
   position: relative;
   margin: 1%;
   width: 98%;
+  background: white;
   min-height: 700px;
   height: 100%;
   cursor: crosshair;

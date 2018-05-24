@@ -3,9 +3,9 @@ import axios from "axios";
 import {
   GET_WALL,
   WALL_LOADING,
-  GET_ERRORS,
   CLEAR_CURRENT_WALL,
-  SET_CURRENT_WALL
+  // SET_CURRENT_WALL,
+  GET_ERRORS
 } from "./types";
 
 // Get current wall
@@ -18,7 +18,7 @@ export const getCurrentWall = () => dispatch => {
         type: GET_WALL,
         payload: res.data
       });
-      dispatch(setCurrentWall(res.data));
+      // dispatch(setCurrentWall(res.data));
     })
     .catch(err =>
       dispatch({
@@ -29,13 +29,13 @@ export const getCurrentWall = () => dispatch => {
 };
 
 // Set logged in user
-export const setCurrentWall = decoded => {
-  // Dispatch to reducer
-  return {
-    type: SET_CURRENT_WALL,
-    payload: decoded
-  };
-};
+// export const setCurrentWall = decoded => {
+//   // Dispatch to reducer
+//   return {
+//     type: SET_CURRENT_WALL,
+//     payload: decoded
+//   };
+// };
 
 // Wall loading
 export const setWallLoading = () => {
