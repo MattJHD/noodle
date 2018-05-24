@@ -242,17 +242,7 @@ function hideChat() {
 
 function canvas2pdf(e) {
   e.preventDefault();
-  // console.log("test");
-  // var img = draw_area.toDataURL();
-  // var iframe =
-  //   '<iframe src="' +
-  //   img +
-  //   '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>';
-  // var x = window.open();
-  // x.document.open();
-  // x.document.write(iframe);
-  // x.document.close();
-  console.log(name);
+
   var canvas = document.getElementById("draw_area");
 
   //create a dummy CANVAS
