@@ -1,21 +1,18 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import Chat from '../chat/chat';
 import "./room.css";
 
 export default class Room extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-    };
+    this.state = {};
   }
 
   render() {
     return (
       <div className="Room">
         <h1>Room page</h1>
-        <Chat />
       </div>
     );
   }
