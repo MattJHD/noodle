@@ -5,6 +5,9 @@ head
 	script(src='http://code.jquery.com/jquery-1.9.1.min.js')
 	script(src='/paper-full.min.js')
 	script(src='/socket.io/socket.io.js')
+	//- script(src='node_modules/dom-to-image/src/dom-to-image.js')
+	//- script(src="https://cdn.rawgit.com/konvajs/konva/2.1.3/konva.min.js")
+	//- script(src='/dom-to-image.js')
 	script(src='/connect.js')
 	script(src='/chat.js')
 	script(src='/draw.js')
@@ -17,6 +20,7 @@ body
 			p UTILISATEURS 
 				ul#online_list
 		#canvas_controls
+			a#canvas2pdfButton(href="https://google.com/" target="_blank") SAVE
 			button#zindexChange Change calque
 			button#hideChat Hide chat
 			input#thick_txt(type='text',value='2')

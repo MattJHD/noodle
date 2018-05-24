@@ -35,7 +35,11 @@ class RoomList extends Component {
             <ul className="customUl">
               {this.props.rooms.map((room, i) => {
                 return (
-                  <form action="http://localhost:5000/canvas" method="POST">
+                  <form
+                    action="http://localhost:5000/canvas"
+                    method="POST"
+                    key={i}
+                  >
                     <input
                       id="username"
                       name="username"

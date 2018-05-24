@@ -13,6 +13,7 @@ class CreateRoom extends Component {
     this.state = {
       rooms: []
     };
+    // this.onSubmit = this.onSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -51,11 +52,14 @@ class CreateRoom extends Component {
           notes, dessiner et exporter le résultat. Vous pouvez rejoindre une
           room existante en cliquant sur son nom ou en créer une nouvelle.
         </p>
+        {/* faire un post en fetch pour avoir un callback et recuperer la roomlist, puis la mettre dans le state */}
+        {/*  */}
         <form
           action="http://localhost:5000/canvas"
           method="POST"
           className="RoomForm"
         >
+          {/* <form onSubmit={this.onSubmit}> */}
           <input
             id="username"
             name="username"

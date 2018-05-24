@@ -116,10 +116,10 @@
   height: 50px;
   width: 50px;
   font-size: 20px;
-  color: rgba(0, 0, 0, 0.5);
+  color: white;
   font-weight: bold;
   border-radius: 50%;
-  background-color: rgba(216, 216, 216, 0.8);
+  background: linear-gradient(to right, #6b7df9, #27a8e9);
   transform: rotate(0deg);
   transition: all 0.2s ease-in;
   border: 0 none;
@@ -139,7 +139,7 @@
 .close-button {
   cursor: pointer;
   transform: rotate(45deg);
-  background-color: white;
+  background: white;
   color: #03a9f4;
   -webkit-box-shadow: 10px 2px 8px -8px rgba(179, 164, 139, 0.6);
 }

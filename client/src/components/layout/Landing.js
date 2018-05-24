@@ -16,10 +16,10 @@ class Landing extends Component {
   render() {
     return (
       <div className="landing">
-        <div className="container">
+        <div className="container container-landing">
           <div className="row">
             <div className="col-md-12 text-center">
-              <h1 className="display-3 mb-4">Noodle.io</h1>
+              {/* <h1 className="display-3 mb-4">Noodle.io</h1> */}
               <p className="lead">
                 {" "}
                 Prenez des notes ou dessinez, seul ou en groupe, pour le

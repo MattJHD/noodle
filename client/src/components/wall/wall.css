@@ -1,0 +1,18 @@
+.img-wall {
+  width: 400px;
+  height: 300px;
+  display: inline-block;
+  border: 1px solid #eee;
+  box-shadow: 5px 2px 2px #eee;
+  margin: 10px;
+}
+
+.wall-container {
+  width: 60%;
+  margin: auto;
+}
+
+.center {
+  width: 50%;
+  margin: auto;
+}

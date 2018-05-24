@@ -6,6 +6,8 @@ var cors = require("cors");
 var MongoClient = require("mongodb").MongoClient;
 var crypto = require("crypto");
 
+const path = require("path");
+
 const passport = require("passport");
 const mongoose = require("mongoose");
 
@@ -13,6 +15,9 @@ const usersRoute = require("./routes/api/users");
 const roomsRoute = require("./routes/api/rooms");
 
 const app = express();
+
+// Test build
+app.use(express.static(path.join(__dirname, "client/build")));
 
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: true }));

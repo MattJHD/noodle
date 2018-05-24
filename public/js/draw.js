@@ -128,7 +128,6 @@ var setupDraw = function() {
         }
       }
     }
-    q;
   });
 
   socket.on("drawing:progress", function(data) {
@@ -146,6 +145,10 @@ var setupDraw = function() {
 
   socket.on("text:send", function(data) {
     console.log(data);
+    // let canvas = document.getElementById("draw_area");
+    // let ctx = canvas.getContext("2d");
+    // ctx.font = "20px Georgia";
+    // ctx.fillText("Hello World!", 10, 50);
     if (data.username != name) {
       index = getUserIndex(data.username);
       if (index !== null) {
@@ -237,6 +240,38 @@ function hideChat() {
   }
 }
 
+function canvas2pdf(e) {
+  e.preventDefault();
+  // console.log("test");
+  // var img = draw_area.toDataURL();
+  // var iframe =
+  //   '<iframe src="' +
+  //   img +
+  //   '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>';
+  // var x = window.open();
+  // x.document.open();
+  // x.document.write(iframe);
+  // x.document.close();
+  console.log(name);
+  var canvas = document.getElementById("draw_area");
+  var dataURL = canvas.toDataURL();
+
+  $.ajax({
+    type: "POST",
+    url: "/api/users/exportPdf",
+    data: {
+      imgBase64: dataURL,
+      username: name
+    }
+  }).done(function(o) {
+    console.log("saved");
+    // If you want the file to be visible in the browser
+    // - please modify the callback in javascript. All you
+    // need is to return the url to the file, you just saved
+    // and than put the image in your browser.
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   let changeZindex = document.getElementById("zindexChange");
   let hideChatButton = document.getElementById("hideChat");
@@ -249,4 +284,6 @@ document.addEventListener("DOMContentLoaded", function() {
       username: name
     });
   });
+  let canvas2pdfButton = document.getElementById("canvas2pdfButton");
+  canvas2pdfButton.addEventListener("click", canvas2pdf);
 });
