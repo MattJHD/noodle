@@ -5,28 +5,29 @@ body {
 }
 
 #title_div {
-  position: absolute;
+  position: relative;
   height: 100vh;
-  width: 15%;
+  width: 250px;
   background: linear-gradient(to right, #6b7df9, #27a8e9);
   color: white;
 }
 
 #color_picker {
-  box-sizing: border-box;
   display: inline;
+  height: 15%;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #eee;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
   padding: 0px !important;
-  width: 50%;
-  height: 40%;
-  /* border: 2px solid #795548; */
-  /* border-radius: 40%; */
-  background-color: #795548;
-  /* width: 30px; */
-  margin: 0 !important;
 }
 #roomInfos {
-  height: 50%;
+  height: 50vh;
   padding-left: 20px;
+  padding-top: 12vh;
 }
 
 #room_list {
@@ -46,7 +47,7 @@ body {
 }
 #canvas_chat {
   position: relative;
-  left: 15%;
+  left: 250px;
   width: 85%;
   height: 90%;
 }
@@ -84,26 +85,25 @@ body {
 }
 
 #canvas_controls {
-  height: 48%;
+  height: 38vh;
 }
 
 #thick_txt {
   display: inline;
-  background: #cddc39;
-  /* margin-top: -26px; */
-  width: 50%;
-  height: 40%;
-  /* padding: 0!important; */
-  /* margin-left: 0px; */
-  /* margin-right: 0px!important; */
+  height: 15%;
+  width: 100%;
   border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #eee;
+  color: white;
+  text-transform: uppercase;
   text-align: center;
-  vertical-align: top;
+  padding: 0px !important;
 }
 
 #draw_area {
   position: relative;
-  margin: 1%;
+  margin: 2%;
   width: 98%;
   background: white;
   min-height: 700px;
@@ -137,10 +137,18 @@ p.chat {
   background-color: #795548;
 }
 #zindexChange {
-  width: 50%;
-  height: 40%;
   border: none;
-  background-color: #ffeb3b;
+  height: 15%;
+  width: 100%;
+  background-color: transparent;
+  /* border-top: 1px solid #eee; */
+  border-bottom: 1px solid #eee;
+  color: white;
+  text-transform: uppercase;
+  /* width: 50%; */
+  /* height: 40%; */
+  /* border: none; */
+  /* background-color: #ffeb3b; */
 }
 #chat_input {
   border-radius: 6px;
@@ -177,9 +185,17 @@ p.chat {
 
 #hideChat {
   border: none;
-  height: 40%;
-  width: 50%;
-  background-color: #ffc107;
+  *//* height: 40%; */
+    /* width: 50%; */
+    /* background-color: #ffc107; */
+    border: none;
+  height: 15%;
+  width: 100%;
+  background-color: transparent;
+  /* border-top: 1px solid #eee; */
+  border-bottom: 1px solid #eee;
+  color: white;
+  text-transform: uppercase;
 }
 
 #slidecontainer {
@@ -213,4 +229,302 @@ p.chat {
   height: 25px;
   background: #cddc39;
   cursor: pointer;
+}
+
+.App-header > nav > div {
+  float: left;
+  width: 16.6666%;
+  height: 100%;
+  position: relative;
+}
+
+.App-header > nav > div > a {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: block;
+  line-height: 50px;
+  color: #fbfbfb;
+  transition: background-color 0.2s ease;
+  text-transform: uppercase;
+}
+
+.App-header > nav > div:hover > a {
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.App-header > nav > div > div {
+  display: none;
+  overflow: hidden;
+  background-color: white;
+  min-width: 200%;
+  position: absolute;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  padding: 10px;
+}
+
+.App-header > nav > div:first-of-type > div {
+  left: 0;
+  border-radius: 0 0 3px 0;
+}
+
+.App-header > nav > div:last-of-type > div {
+  right: 0;
+  border-radius: 0 0 0 3px;
+}
+
+.App-header > nav > div:hover > div {
+  display: block;
+}
+
+.App-header > nav > div > div > a {
+  display: block;
+  float: left;
+  padding: 8px 10px;
+  width: 46%;
+  margin: 2%;
+  text-align: center;
+  background-color: #f44355;
+  color: #fbfbfb;
+  border-radius: 2px;
+  transition: background-color 0.2s ease;
+}
+
+.App-header > nav > div > div > a:hover {
+  background-color: #212121;
+  cursor: pointer;
+}
+
+.App-header > h1 {
+  margin-top: 100px;
+  font-weight: 100;
+}
+
+.App-header > p {
+  color: #aaa;
+  font-weight: 300;
+}
+
+@media (max-width: 600px) {
+  .App-header > nav > div > div > a {
+    margin: 5px 0;
+    width: 100%;
+  }
+  .App-header > nav > div > a > span {
+    display: none;
+  }
+}
+
+@media (max-width: 980px) {
+  #chat_div {
+    position: fixed;
+    /* float: right; */
+    width: 55%;
+    height: 35%;
+    top: 63%;
+    left: 40%;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.menu-wrapper {
+  position: fixed;
+  height: 100vh;
+  width: 250px;
+  background: linear-gradient(to right, #6b7df9, #27a8e9);
+  margin-left: -450px;
+  /* margin-top: -10px; */
+  z-index: 9;
+  top: 0;
+  opacity: 0;
+  -webkit-box-shadow: 10px 10px 6px -8px rgba(161, 136, 119, 0.7);
+  transition: all 0.3s ease-in-out;
+  border-radius: 2px;
+  padding: 0 auto;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.menu-open {
+  margin-left: 0px;
+  opacity: 1;
+}
+
+.menu-toggle {
+  cursor: pointer;
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  margin: 20px;
+  padding: 0px;
+  height: 50px;
+  width: 50px;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  background: linear-gradient(to right, #6b7df9, #27a8e9);
+  transform: rotate(0deg);
+  transition: all 0.2s ease-in;
+  border: 0 none;
+}
+
+.menu-toggle:hover {
+  cursor: pointer;
+  transform: scale(1.1) rotate(0deg);
+  -webkit-box-shadow: 10px 2px 8px -8px rgba(179, 164, 139, 0.6);
+}
+
+.menu-toggle:focus {
+  cursor: pointer;
+  outline: 0 none;
+}
+
+.close-button {
+  cursor: pointer;
+  transform: rotate(45deg);
+  background: white;
+  color: #03a9f4;
+  -webkit-box-shadow: 10px 2px 8px -8px rgba(179, 164, 139, 0.6);
+}
+
+.close-button:hover {
+  transform: scale(1.1) rotate(45deg);
+}
+
+.links-wrapper {
+  margin: 10px;
+  padding: 10px;
+  text-align: right;
+  opacity: 1;
+  transition: all 0.7s ease-out;
+  transition-delay: 0.3s;
+  letter-spacing: 2px;
+}
+
+.links-wrapper-closed {
+  padding-top: 50px;
+  opacity: 0;
+  letter-spacing: 0px;
+}
+
+.link-list {
+  padding-top: 90px;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+.link-list li {
+  list-style-type: none;
+  text-transform: uppercase;
+  margin: 0;
+  margin-bottom: 30px;
+  border-bottom: 2px solid white;
+  padding: 3px;
+}
+
+.link-list a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.link-list a:hover {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.social-wrapper {
+  margin-top: 100px;
+  text-align: center;
+  padding: 0 auto;
+}
+
+.social-wrapper a {
+  margin: 4px;
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.5);
+  transition: color 0.3s ease;
+}
+
+.social-wrapper a:hover {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.social-open {
+  opacity: 1;
+  transition: opacity 0.7s ease-out;
+  transition-delay: 0.3s;
+}
+
+.social-closed {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.Login {
+  padding: 0px;
+  height: 100vh;
+  background-image: url("/bck.png");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.Login form {
+  padding-top: 40vh !important;
+}
+@media (min-width: 480px) {
+  .Login {
+    padding: 0px !important;
+  }
+}
+
+.whiteBackground {
+  background-color: white;
+  height: 220px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  background: white;
+  border-radius: 5px;
+  height: 20px;
+}
+
+.form-group {
+  padding: 10px 0;
+}
+
+.btn {
+  width: 101%;
+}
+
+.btn-info {
+  border-style: none;
+  background-color: #03a9f4;
+  border-radius: 5px;
+  height: 35px;
+  color: white;
+  text-transform: uppercase;
+}
+
+#canvas2pdfButton {
+  border: none;
+  height: 15%;
+  width: 100%;
+  background-color: transparent;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  color: white;
+  text-transform: uppercase;
 }

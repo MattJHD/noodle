@@ -281,6 +281,22 @@ function canvas2pdf(e) {
   });
 }
 
+function toggleMenu() {
+  if (document.getElementById("menu-wrapper").classList.contains("menu-open")) {
+    document.getElementById("menu-wrapper").classList.remove("menu-open");
+  } else {
+    document.getElementById("menu-wrapper").classList.add("menu-open");
+  }
+
+  if (
+    document.getElementById("menuButton").classList.contains("close-button")
+  ) {
+    document.getElementById("menuButton").classList.remove("close-button");
+  } else {
+    document.getElementById("menuButton").classList.add("close-button");
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   let changeZindex = document.getElementById("zindexChange");
   let hideChatButton = document.getElementById("hideChat");
@@ -295,4 +311,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
   let canvas2pdfButton = document.getElementById("canvas2pdfButton");
   canvas2pdfButton.addEventListener("click", canvas2pdf);
+
+  let menuButton = document.getElementById("menuButton");
+  menuButton.addEventListener("click", toggleMenu);
 });
