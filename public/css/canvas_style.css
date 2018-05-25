@@ -5,7 +5,7 @@ body {
 }
 
 #title_div {
-  position: relative;
+  position: absolute;
   height: 100vh;
   width: 250px;
   background: linear-gradient(to right, #6b7df9, #27a8e9);
