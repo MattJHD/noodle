@@ -46,7 +46,7 @@ class Navbar extends Component {
               {/* <li><Link to="/login" open={this.state.open} >Login</Link></li> */}
               <li>
                 <Link to="createRoom" open={this.state.open}>
-                  Create room
+                  Rooms
                 </Link>
               </li>
               <li>

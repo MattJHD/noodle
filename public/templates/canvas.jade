@@ -12,6 +12,20 @@ head
 	script(src='/chat.js')
 	script(src='/draw.js')
 body
+	div.align-left
+		div#menu-wrapper.menu-wrapper
+			div#menu
+				ul.link-list
+					li
+						//- a(href="/") Home //- Prod
+						a(href="http://localhost:3000") Home
+					li
+						//- a(href="/createRoom") Rooms //- Prod
+						a(href="http://localhost:3000/createRoom") Rooms
+					li
+						//- a(href="/wall") Wall //- Prod
+						a(href="http://localhost:3000/wall") Wall
+		button#menuButton.menu-toggle X
 	#title_div
 		#roomInfos
 			p ROOM 
@@ -20,7 +34,7 @@ body
 			p UTILISATEURS 
 				ul#online_list
 		#canvas_controls
-			a#canvas2pdfButton(href="https://google.com/" target="_blank") SAVE
+			button#canvas2pdfButton CREATE PNG
 			button#zindexChange Change calque
 			button#hideChat Hide chat
 			input#thick_txt(type='text',value='2')
