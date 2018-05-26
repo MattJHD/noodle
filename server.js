@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, "client/build")));
 
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit:'50mb'}));
 
 // Cors
 app.use(cors());

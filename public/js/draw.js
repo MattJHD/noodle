@@ -244,7 +244,18 @@ function canvas2pdf(e) {
   e.preventDefault();
 
   var canvas = document.getElementById("draw_area");
+  var text = document.getElementById('text-div').innerText
 
+  var c = canvas.getContext('2d');
+  c.font = '15px Courier';
+  console.log(c);
+  var x = 10;
+  var y = 24;
+  var lineheight = 15;
+  var lines = text.split('\n');
+
+  for (var i = 0; i<lines.length; i++)
+    c.fillText(lines[i], x, y + (i*lineheight) );
   //create a dummy CANVAS
 
   destinationCanvas = document.createElement("canvas");
@@ -261,7 +272,7 @@ function canvas2pdf(e) {
   destCtx.drawImage(canvas, 0, 0);
 
   //finally use the destinationCanvas.toDataURL() method to get the desired output;
-  var dataURL = destinationCanvas.toDataURL();
+  var dataURL = canvas.toDataURL();
 
   // var dataURL = canvas.toDataURL();
 
@@ -274,6 +285,7 @@ function canvas2pdf(e) {
     }
   }).done(function(o) {
     console.log("saved");
+    c.fillText('',0,0);
     // If you want the file to be visible in the browser
     // - please modify the callback in javascript. All you
     // need is to return the url to the file, you just saved

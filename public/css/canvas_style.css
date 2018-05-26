@@ -43,6 +43,9 @@ body {
   position: absolute;
   padding: 20px;
   box-sizing: border-box;
+  font-size: 15px;
+    font-family: monospace;
+    line-height: 15px;
 }
 #canvas_chat {
   position: relative;
@@ -105,7 +108,7 @@ body {
   position: relative;
   margin: 1%;
   width: 98%;
-  background: white;
+  /*background: white;*/
   min-height: 700px;
   height: 100%;
   cursor: crosshair;
