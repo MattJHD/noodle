@@ -16,19 +16,6 @@ export const registerUser = (userData, history) => dispatch => {
     );
 };
 
-// // Get user infos
-// export const getUserInfo = (userData) => dispatch => {
-//   axios
-//     .post("/api/users/current", userData)
-//     .then(res => console.log('test'))
-//     .catch(err =>
-//       dispatch({
-//         type: GET_ERRORS,
-//         payload: err.response.data
-//       })
-//     );
-// };
-
 // Login - Get User Token
 export const loginUser = userData => dispatch => {
   axios

@@ -240,41 +240,41 @@ function hideChat() {
   }
 }
 
+// It's canvas2png but whatever
 function canvas2pdf(e) {
   e.preventDefault();
 
   var canvas = document.getElementById("draw_area");
-  var text = document.getElementById('text-div').innerText
+  var text = document.getElementById("text-div").innerText;
 
-  var c = canvas.getContext('2d');
-  c.font = '15px Courier';
-  console.log(c);
+  $("#text-div").hide();
+
+  var c = canvas.getContext("2d");
+  c.font = "15px Courier";
   var x = 10;
   var y = 24;
   var lineheight = 15;
-  var lines = text.split('\n');
+  var lines = text.split("\n");
 
-  for (var i = 0; i<lines.length; i++)
-    c.fillText(lines[i], x, y + (i*lineheight) );
-  //create a dummy CANVAS
+  for (var i = 0; i < lines.length; i++)
+    c.fillText(lines[i], x, y + i * lineheight);
 
+  // Create a dummy CANVAS
   destinationCanvas = document.createElement("canvas");
   destinationCanvas.width = canvas.width;
   destinationCanvas.height = canvas.height;
 
   destCtx = destinationCanvas.getContext("2d");
 
-  //create a rectangle with the desired color
+  // Create a rectangle with the desired color
   destCtx.fillStyle = "#FFFFFF";
   destCtx.fillRect(0, 0, canvas.width, canvas.height);
 
-  //draw the original canvas onto the destination canvas
+  // Draw the original canvas onto the destination canvas
   destCtx.drawImage(canvas, 0, 0);
 
-  //finally use the destinationCanvas.toDataURL() method to get the desired output;
+  // Finally use the destinationCanvas.toDataURL() method to get the desired output;
   var dataURL = canvas.toDataURL();
-
-  // var dataURL = canvas.toDataURL();
 
   $.ajax({
     type: "POST",
@@ -282,17 +282,19 @@ function canvas2pdf(e) {
     data: {
       imgBase64: dataURL,
       username: name
+    },
+    dataType: "json",
+    success: function(o) {
+      //c.fillText("", 0, 0); // Doesnt work so I hide the text div when they click save instead
+      window.location.replace("http://localhost:3000/wall");
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+      console.log(error);
     }
-  }).done(function(o) {
-    console.log("saved");
-    c.fillText('',0,0);
-    // If you want the file to be visible in the browser
-    // - please modify the callback in javascript. All you
-    // need is to return the url to the file, you just saved
-    // and than put the image in your browser.
   });
 }
 
+// Side menu bar for backend canvas page
 function toggleMenu() {
   if (document.getElementById("menu-wrapper").classList.contains("menu-open")) {
     document.getElementById("menu-wrapper").classList.remove("menu-open");
@@ -309,6 +311,7 @@ function toggleMenu() {
   }
 }
 
+// DOM EVENTS
 document.addEventListener("DOMContentLoaded", function() {
   let changeZindex = document.getElementById("zindexChange");
   let hideChatButton = document.getElementById("hideChat");

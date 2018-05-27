@@ -28,15 +28,6 @@ export const getCurrentWall = () => dispatch => {
     );
 };
 
-// Set logged in user
-// export const setCurrentWall = decoded => {
-//   // Dispatch to reducer
-//   return {
-//     type: SET_CURRENT_WALL,
-//     payload: decoded
-//   };
-// };
-
 // Wall loading
 export const setWallLoading = () => {
   return {

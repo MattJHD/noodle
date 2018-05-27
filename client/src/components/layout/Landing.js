@@ -6,13 +6,6 @@ import { connect } from "react-redux";
 import "./landing.css";
 
 class Landing extends Component {
-  // Protect routes by checking if logged in
-  // componentDidMount() {
-  //   if (this.props.auth.isAuthenticated) {
-  //     this.props.history.push("/createRoom");
-  //   }
-  // }
-
   render() {
     return (
       <div className="landing">

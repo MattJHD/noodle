@@ -16,12 +16,12 @@ const roomsRoute = require("./routes/api/rooms");
 
 const app = express();
 
-// Test build
+// Build path
 app.use(express.static(path.join(__dirname, "client/build")));
 
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json({limit:'50mb'}));
+app.use(bodyParser.json({ limit: "50mb" }));
 
 // Cors
 app.use(cors());
@@ -37,8 +37,6 @@ app.use(express.static(__dirname + "/public/js"));
 app.use(express.static(__dirname + "/public/css"));
 app.use(express.static(__dirname + "/public/libs"));
 app.use(express.static(__dirname + "/public/res"));
-
-// var myDB;
 
 // DB Config
 const db = require("./config/keys").mongoURI;
@@ -68,6 +66,9 @@ require("./config/passport")(passport);
 app.use("/api/users", usersRoute);
 app.use("/api/rooms", roomsRoute);
 
+// ---------------------
+//      SOCKETS START
+// ---------------------
 var io = require("socket.io").listen(app.listen(port));
 console.log("Listening on port: " + port);
 
@@ -112,66 +113,18 @@ io.sockets.on("connection", function(socket) {
   socket.on("drawing:progress", function(data) {
     io.sockets.in(data.room).emit("drawing:progress", data);
   });
-  //Text
+  // Text
   socket.on("text:send", function(data) {
     io.sockets.in(data.room).emit("text:send", data);
   });
 });
+// ---------------------
+//      SOCKETS END
+// ---------------------
 
-app.get("/", function(req, res) {
-  res.render("login.jade", { msg: "" });
-});
-
-// Example of API route for LOGIN
-// Linked to login components in client folder - fetch(/login) endpoint
-// app.get("/login", function(req, res) {
-//   console.log(req.ip + " opened the site");
-//   let data = {
-//     mail: ""
-//   };
-//   res.json(data);
-// });
-
-// app.post("/login", function(req, res) {
-//   var params = req.body;
-//   myDB
-//     .collection("users")
-//     .find({ email: params.email.toLowerCase() })
-//     .toArray(function(error, results) {
-//       if (error) console.log(error);
-//       if (results[0]) {
-//         if (results[0].password === params.password) {
-//           let token = crypto.randomBytes(64).toString("hex");
-//           res.status(200).json({
-//             token: token,
-//             result: results[0]
-//           });
-//         } else {
-//           res.status(500).send("Invalid password");
-//         }
-//       } else {
-//         res.status(404).send("User don't exist please register");
-//       }
-//     });
-// });
-
-// app.get("/register", function(req, res) {
-//   let data = {
-//     mail: ""
-//   };
-//   res.json(data);
-// });
-
-// // Test post request on register component
-// app.post("/register", function(req, res) {
-//   console.log("register");
-//   var params = req.body;
-//   params.email = params.email.toLowerCase();
-//   myDB.collection("users").insert(params, function() {
-//     res.status(200).send("User created");
-//   });
-// });
-
+// @route   GET /monitor
+// @desc    Get some monitoring information (users / rooms / ip)
+// @access  Public
 app.get("/monitor", function(req, res) {
   res.render("monitor.jade", {
     roomList: users.roomList,
@@ -179,12 +132,10 @@ app.get("/monitor", function(req, res) {
   });
 });
 
-// app.get("/roomList", function(req, res) {
-//   let roomList = Object.keys(users.roomList);
-//   console.log(roomList);
-//   res.json(roomList);
-// });
-
+// @route   POST /canvas
+// @desc    Create a new room with canvas and chat - backend side
+// @desc    Accessed directly from a form on front side
+// @access  Public
 app.post("/canvas", function(req, res, next) {
   console.log(req.body);
   console.log(

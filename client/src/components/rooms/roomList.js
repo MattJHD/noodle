@@ -8,22 +8,7 @@ import "./roomList.css";
 class RoomList extends Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   room: ''
-    // };
   }
-
-  // componentDidMount() {
-  //   let username = this.props.auth.user.username;
-  //   this.setState({ username: username });
-  //   console.log(username);
-  // }
-
-  // handleChange = event => {
-  //   this.setState({
-  //     [event.target.id]: event.target.value
-  //   });
-  // }
 
   render() {
     const { isAuthenticated, user } = this.props.auth;

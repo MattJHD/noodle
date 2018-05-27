@@ -123,58 +123,25 @@ router.post("/login", (req, res) => {
   });
 });
 
-router.post("/exportPdf", function(req, res, next) {
-  // console.log(req.body);
-  // const user = {};
-  // user.img = req.body.imgBase64;
-
-  // console.log(user);
+// @route   POST api/users/exportPdf
+// @desc    Save canvas and text data as Base64 img - then redirect to wall page
+// @access  Public
+router.post("/exportPdf", function(req, res) {
   const query = { username: req.body.username };
 
   User.findOne(query).then(user => {
-    // console.log(user);
     user.img.push(req.body.imgBase64);
     User.update(query, user, err => {
       if (err) {
         console.log(err);
       }
-      console.log("ok");
-      console.log(user);
-      // res.redirect('/');
     });
+    res.json(user);
   });
-
-  // user.img.push(req.body.imgBase64);
-  // console.log(user.img);
-  // User.update(query, user, err => {
-  //   if (err) {
-  //     console.log(err);
-  //   }
-  //   console.log("ok");
-  //   // res.redirect('/');
-  // });
 });
 
 // @route   GET api/users/current
-// @desc    Return current user
-// @access  Private
-// router.get(
-//   "/current",
-//   passport.authenticate("jwt", { session: false }),
-//   (req, res) => {
-//     res.json({
-//       id: req.user.id,
-//       firstName: req.user.firstName,
-//       lastName: req.user.lastName,
-//       username: req.user.username,
-//       email: req.user.email,
-//       img: req.user.img
-//     });
-//   }
-// );
-
-// @route   GET api/users/current
-// @desc    Return current user
+// @desc    Return current user and data
 // @access  Private
 router.get(
   "/current",
@@ -182,25 +149,9 @@ router.get(
   (req, res) => {
     const query = { _id: req.user.id };
     User.findOne(query).then(user => {
-      console.log(user);
       res.json(user);
     });
   }
 );
-
-// @route   GET api/users/current
-// @desc    Return current user
-// @access  Private
-// router.get("/getcurrent", (req, res) => {
-//   console.log(req.user);
-//   res.json({
-//     id: req.user.id,
-//     firstName: req.user.firstName,
-//     lastName: req.user.lastName,
-//     username: req.user.username,
-//     email: req.user.email,
-//     img: req.user.img
-//   });
-// });
 
 module.exports = router;
