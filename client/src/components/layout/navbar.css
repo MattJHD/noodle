@@ -108,7 +108,7 @@
 
 .menu-toggle {
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   z-index: 1000;
   top: 0;
   margin: 20px;
@@ -137,6 +137,7 @@
 }
 
 .close-button {
+  position: fixed;
   cursor: pointer;
   transform: rotate(45deg);
   background: white;
